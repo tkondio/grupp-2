@@ -1,4 +1,9 @@
-import { createLogicalNot } from "typescript";
+//import { createLogicalNot } from "typescript";
+import LandingPage from "../pages/LandingPage";
+import Account from "../pages/Account";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import ShoppingBag from "../pages/Shoppingbag";
 
 type NavType = {
   name: string;
@@ -9,38 +14,28 @@ type NavType = {
 const NavigationPath: NavType[] = [
   {
     name: "SINUSUSS",
-    path: "/",
+    path: "/home",
     component: LandingPage,
   },
   {
-    name: "Login",
+    name: "Logi sisse",
     path: "/login",
     component: Login,
   },
   {
-    name: "Register",
+    name: "Registreeru",
     path: "/register",
     component: Register,
   },
   {
-    name: "Account",
+    name: "Kasutaja",
     path: "/account",
     component: Account,
   },
   {
-    name: "Mens",
-    path: "/mens",
-    component: Mens,
-  },
-  {
-    name: "Womens",
-    path: "/womens",
-    component: Womens,
-  },
-  {
     name: "ShoppingBag",
     path: "/shoppingbag",
-    component: Shoppingbag,
+    component: ShoppingBag,
   },
 ];
 
