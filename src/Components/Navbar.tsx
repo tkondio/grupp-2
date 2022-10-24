@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
     <div className="navbar">
       <div className="title">Sussikaubamaja SINU SUSS</div>
       <div className="pages">
-        {NavigationPath.map((el, idx) => (
+        {NavigationPath.map((el, idx ) => (
           <Link
             className="link"
             to={el.path}
