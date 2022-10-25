@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
 
   return (
     <div className={classes.container}>
-      <Link to="./home">
+      <Link to="./">
         <div>
           <img src="images/SINUSUSS.png" alt="LOGO" className={classes.logo} />
         </div>

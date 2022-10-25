@@ -11,7 +11,7 @@ type NavType = {
 const NavigationPath: NavType[] = [
   {
     icon: "SINUSUSS",
-    path: "/home",
+    path: "/",
     component: LandingPage,
   },
   {
