@@ -1,3 +1,4 @@
+import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
 import ShoppingBag from "../pages/Shoppingbag";
 
@@ -8,11 +9,11 @@ type NavType = {
 };
 
 const NavigationPath: NavType[] = [
-  /*{
+  {
     icon: "SINUSUSS",
     path: "/home",
     component: LandingPage,
-  },*/
+  },
   {
     icon: "accounticon",
     path: "/login",
