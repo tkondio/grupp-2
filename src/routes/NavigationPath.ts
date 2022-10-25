@@ -1,4 +1,4 @@
-
+import Account from "../pages/Account";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -12,6 +12,7 @@ type NavType = {
 
 const NavigationPath: NavType[] = [
   {
+    name: "SINUSUSS",
     path: "/",
     component: LandingPage,
   },
