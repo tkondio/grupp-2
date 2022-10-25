@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
 
   return (
     <div className={classes.container}>
-      <Link to="/">
+      <Link to="./">
         <div>
           <img src="images/SINUSUSS.png" alt="LOGO" className={classes.logo} />
         </div>
@@ -69,28 +69,7 @@ const Navbar: React.FC = () => {
           />
         </li>
         <li>
-          <Link to="/login">
-            <div>
-              <img
-                src="images/accounticon.png"
-                alt="Account"
-                className={classes.img}
-              />
-            </div>
-          </Link>
-        </li>
-        <li>
-          <Link to="/shoppingbag">
-            <div>
-              <img
-                src="images/basketicon.png"
-                alt="Account"
-                className={classes.img}
-              />
-            </div>
-          </Link>
 
-          {/* <div>
             {NavigationPath.map((el, idx) => (
               <Link
                 className="link"
