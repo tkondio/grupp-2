@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavigationPath from "./models/NavigationPath";
-import Navbar from "./Components/Navbar";
+import NavigationPath from "./routes/NavigationPath";
+import Navbar from "./components/Navbar";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
