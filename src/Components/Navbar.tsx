@@ -69,7 +69,28 @@ const Navbar: React.FC = () => {
           />
         </li>
         <li>
-          <div>
+          <Link to="/login">
+            <div>
+              <img
+                src="images/accounticon.png"
+                alt="Account"
+                className={classes.img}
+              />
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link to="/shoppingbag">
+            <div>
+              <img
+                src="images/basketicon.png"
+                alt="Account"
+                className={classes.img}
+              />
+            </div>
+          </Link>
+
+          {/* <div>
             {NavigationPath.map((el, idx) => (
               <Link
                 className="link"
@@ -88,7 +109,7 @@ const Navbar: React.FC = () => {
                 />
               </Link>
             ))}
-          </div>
+          </div> */}
         </li>
       </ul>
     </div>
