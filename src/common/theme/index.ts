@@ -7,6 +7,13 @@ const theme = {
     middleGreen: "#6D795E",
     lightGreen: "#6C7E65",
   },
+  backgroundImage: {
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    width: "100vw",
+    height: "100vh",
+  },
 };
 
 export default theme;
