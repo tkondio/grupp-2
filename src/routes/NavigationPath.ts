@@ -1,24 +1,27 @@
+import Account from "../pages/Account";
+import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 import ShoppingBag from "../pages/Shoppingbag";
 
 type NavType = {
-  icon: string;
+  name: string;
   path: string;
   component: React.FC;
 };
 
 const NavigationPath: NavType[] = [
-  /*{
-    icon: "SINUSUSS",
+  {
+    name: "SINUSUSS",
     path: "/home",
     component: LandingPage,
-  },*/
+  },
   {
-    icon: "accounticon",
+    name: "accounticon",
     path: "/login",
     component: Login,
   },
-  /*{
+  {
     name: "Registreeru",
     path: "/register",
     component: Register,
@@ -27,9 +30,9 @@ const NavigationPath: NavType[] = [
     name: "Kasutaja",
     path: "/account",
     component: Account,
-  },*/
+  },
   {
-    icon: "basketicon",
+    name: "basketicon",
     path: "/shoppingbag",
     component: ShoppingBag,
   },
