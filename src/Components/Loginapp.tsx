@@ -1,6 +1,23 @@
 import React, { useState } from "react";
+import { classicNameResolver } from "typescript";
+import { createUseStyles } from "react-jss";
+import theme from "../common/theme";
+
+const useStyles = createUseStyles({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  loginform: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+});
 
 export const Loginapp = (props: { onFormSwitch: (arg0: string) => void }) => {
+  const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -9,8 +26,8 @@ export const Loginapp = (props: { onFormSwitch: (arg0: string) => void }) => {
     console.log(email);
   };
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className={classes.container}>
+      <form className={classes.loginform} onSubmit={handleSubmit}>
         <label htmlFor="email">E-mail</label>
         <input
           value={email}
@@ -34,6 +51,6 @@ export const Loginapp = (props: { onFormSwitch: (arg0: string) => void }) => {
       <button onClick={() => props.onFormSwitch("register")}>
         Ei ole kasutajat? Registreeru siin.
       </button>
-    </>
+    </div>
   );
 };
