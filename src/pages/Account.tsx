@@ -47,7 +47,7 @@ const useStyles = createUseStyles({
     paddingTop: 30,
     justifyContent: "space-between",
   },
-=======
+
 
 });
 
@@ -77,7 +77,7 @@ const Account: React.FC = () => {
 
       </div>
 
-=======
+
       <div className={classes.productArea}>Soovitame sulle...</div>
       <div className={classes.toShop}>
         liigu /selle lingi kaudu/ poodi, et avastada veel susse!
