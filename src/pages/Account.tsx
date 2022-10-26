@@ -1,6 +1,7 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import theme from "../common/theme";
+import ItemCard from "../components/ItemCard";
 
 // sidepanel
 // recommended
@@ -36,8 +37,18 @@ const useStyles = createUseStyles({
     alignSelf: "flex-end",
     marginBottom: 200,
     marginleft: 700,
+    paddingTop: 30,
     color: theme.colors.white,
   },
+
+  recommendedBox: {
+    display: "flex",
+    width: 990,
+    paddingTop: 30,
+    justifyContent: "space-between",
+  },
+=======
+
 });
 
 const Account: React.FC = () => {
@@ -54,10 +65,24 @@ const Account: React.FC = () => {
           <div>Telefon:</div>
         </div>
       </div>
+
+      <div className={classes.productArea}>Soovitame sulle...
+      <div className={classes.recommendedBox}>
+      <ItemCard></ItemCard>
+      <ItemCard></ItemCard>
+      <ItemCard></ItemCard>
+
+      </div>
+      <div className={classes.toShop}>liigu /selle lingi kaudu/ poodi, et avastada veel susse!</div>
+
+      </div>
+
+=======
       <div className={classes.productArea}>Soovitame sulle...</div>
       <div className={classes.toShop}>
         liigu /selle lingi kaudu/ poodi, et avastada veel susse!
       </div>
+
     </div>
   );
 };
