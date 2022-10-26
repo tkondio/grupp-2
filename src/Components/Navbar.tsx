@@ -1,6 +1,6 @@
 import React from "react";
-import { useLocation, Link } from "react-router-dom";
-import NavigationPath from "../routes/NavigationPath";
+import { /*useLocation,*/ Link } from "react-router-dom";
+//import NavigationPath from "../routes/NavigationPath";
 import { createUseStyles } from "react-jss";
 import theme from "../common/theme";
 
@@ -16,6 +16,7 @@ const useStyles = createUseStyles({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "0px 20px",
+    backgroundColor: "transparent",
   },
   title: {
     fontSize: 20,
@@ -49,7 +50,7 @@ const useStyles = createUseStyles({
 });
 
 const Navbar: React.FC = () => {
-  const location = useLocation();
+  //const location = useLocation();
   const classes = useStyles();
 
   return (
@@ -89,27 +90,6 @@ const Navbar: React.FC = () => {
               />
             </div>
           </Link>
-
-          {/* <div>
-            {NavigationPath.map((el, idx) => (
-              <Link
-                className="link"
-                to={el.path}
-                key={idx}
-                style={{
-                  color: "white",
-                  textDecoration:
-                    location.pathname === el.path ? "underline" : "none",
-                }}
-              >
-                <img
-                  src={`images/${el.icon}.png`}
-                  alt={el.icon}
-                  className={classes.img}
-                />
-              </Link>
-            ))}
-          </div> */}
         </li>
       </ul>
     </div>

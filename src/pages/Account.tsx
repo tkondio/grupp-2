@@ -28,7 +28,7 @@ const useStyles = createUseStyles({
   },
   productArea: {
     distplay: "flex",
-    padding:20,
+    padding: 20,
     color: theme.colors.white,
   },
   toShop: {
@@ -37,7 +37,7 @@ const useStyles = createUseStyles({
     marginBottom: 200,
     marginleft: 700,
     color: theme.colors.white,
-  }
+  },
 });
 
 const Account: React.FC = () => {
@@ -46,17 +46,18 @@ const Account: React.FC = () => {
   return (
     <div className={classes.background}>
       <div className={classes.sidepanel}>
-        <div className={classes.userInfo}>Tere kasutaja!
-        <div>Nimi:</div>
-        <div>email:</div>
-        <div>Aadress:</div>
-        <div>Telefon:</div>
+        <div className={classes.userInfo}>
+          Tere kasutaja!
+          <div>Nimi:</div>
+          <div>email:</div>
+          <div>Aadress:</div>
+          <div>Telefon:</div>
         </div>
       </div>
-      <div className={classes.productArea}>Soovitame sulle...
+      <div className={classes.productArea}>Soovitame sulle...</div>
+      <div className={classes.toShop}>
+        liigu /selle lingi kaudu/ poodi, et avastada veel susse!
       </div>
-      <div className={classes.toShop}>liigu /selle lingi kaudu/ poodi, et avastada veel susse!</div>
-
     </div>
   );
 };
