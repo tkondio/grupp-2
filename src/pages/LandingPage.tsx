@@ -35,6 +35,8 @@ const useStyles = createUseStyles({
     backgroundRepeat: theme.backgroundImage.backgroundRepeat,
     width: theme.backgroundImage.width,
     height: theme.backgroundImage.width,
+    backgroundImage: `url(${"https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/close-up-of-three-females-in-slippers-royalty-free-image-1659569918.jpg"})`,
+
   },
 });
 
@@ -43,11 +45,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <div
-      className={classes.background} style={{
-        //suvaline placeholder pilt
-        backgroundImage: `url(${"https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/close-up-of-three-females-in-slippers-royalty-free-image-1659569918.jpg"})`,
-      }}
-    >
+      className={classes.background} >
       <div className={classes.catchphrase}>Sinu susside kodu.</div>
 
       <div className={classes.landingLinks}>
