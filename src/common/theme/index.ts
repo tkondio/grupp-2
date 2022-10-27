@@ -6,6 +6,7 @@ const theme = {
     darkGreen: "#324327",
     middleGreen: "#6D795E",
     lightGreen: "#6C7E65",
+    black: "#000000"
   },
   backgroundImage: {
     backgroundPosition: "center fixed",
