@@ -3,7 +3,6 @@ import { Loginapp } from "../components/Loginapp";
 import { Registerapp } from "../components/Registerapp";
 import { createUseStyles } from "react-jss";
 import theme from "../common/theme";
-import Navbar from "../components/Navbar";
 
 const useStyles = createUseStyles({
   background: {
@@ -11,7 +10,8 @@ const useStyles = createUseStyles({
     backgroundSize: theme.backgroundImage.backgroundSize,
     backgroundRepeat: theme.backgroundImage.backgroundRepeat,
     width: theme.backgroundImage.width,
-    height: theme.backgroundImage.width,
+    height: theme.backgroundImage.height,
+    backgroundAttachment: theme.backgroundImage.backgroundAttachment,
   },
   container: {
     textAlign: "center",
@@ -37,7 +37,6 @@ const Login: React.FC = () => {
         backgroundImage: "url(/images/grass.jpeg)",
       }}
     >
-      <Navbar />
       <div>
         <div className={classes.container}>
           {currentForm === "login" ? (

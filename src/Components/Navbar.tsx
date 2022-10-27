@@ -7,7 +7,8 @@ import theme from "../common/theme";
 const useStyles = createUseStyles({
   container: {
     background: theme.colors.gradient,
-    position: "sticky",
+    position: "fixed",
+    width: "100%",
     height: "80px",
     top: "0",
     color: theme.colors.white,
@@ -15,7 +16,7 @@ const useStyles = createUseStyles({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "0px 20px",
+    padding: "0px 60px 0px 0px",
     backgroundColor: "transparent",
   },
   title: {
