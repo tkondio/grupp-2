@@ -3,6 +3,7 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 import theme from "../common/theme";
+import Navbar from "../components/Navbar";
 
 const useStyles = createUseStyles({
   catchphrase: {
@@ -47,16 +48,18 @@ const useStyles = createUseStyles({
     width: 180,
   },
   background: {
-    padding: 50,
-    display: "flex",
-    flexDirection: "column",
-    gap: 100,
     backgroundPosition: theme.backgroundImage.backgroundPosition,
     backgroundSize: theme.backgroundImage.backgroundSize,
     backgroundRepeat: theme.backgroundImage.backgroundRepeat,
     //width: theme.backgroundImage.width,
     height: theme.backgroundImage.width,
     backgroundAttachment: theme.backgroundImage.backgroundAttachment,
+  },
+  page: {
+    padding: 50,
+    display: "flex",
+    flexDirection: "column",
+    gap: 100,
     alignContent: "center",
     alignItems: "center",
   },
@@ -70,19 +73,22 @@ const LandingPage: React.FC = () => {
       className={classes.background}
       style={{ backgroundImage: "url(images/background_landingpage.png)" }}
     >
-      <div className={classes.catchphrase}>
-        Enam ei pea kodus paljajalu käima.
-      </div>
+      <Navbar />
+      <div className={classes.page}>
+        <div className={classes.catchphrase}>
+          Enam ei pea kodus paljajalu käima.
+        </div>
 
-      <div className={classes.landingLinks}>
-        <Link to="./Shop" className={classes.landingLink}>
-          MEHED
-        </Link>
-        <div className={classes.linkSeparator}></div>
+        <div className={classes.landingLinks}>
+          <Link to="./Shop" className={classes.landingLink}>
+            MEHED
+          </Link>
+          <div className={classes.linkSeparator}></div>
 
-        <Link to="./Shop" className={classes.landingLink}>
-          NAISED
-        </Link>
+          <Link to="./Shop" className={classes.landingLink}>
+            NAISED
+          </Link>
+        </div>
       </div>
     </div>
   );
