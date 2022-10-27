@@ -9,16 +9,17 @@ const useStyles = createUseStyles({
     backgroundPosition: theme.backgroundImage.backgroundPosition,
     backgroundSize: theme.backgroundImage.backgroundSize,
     backgroundRepeat: theme.backgroundImage.backgroundRepeat,
-    //width: theme.backgroundImage.width,
-    height: theme.backgroundImage.width,
+    width: theme.backgroundImage.width,
     backgroundAttachment: theme.backgroundImage.backgroundAttachment,
+    top: 0,
   },
   header: {
     color: theme.colors.white,
     textAlign: "center",
   },
   page: {
-    padding: 20,
+    paddingTop: 100,
+    padding: 30,
     display: "flex",
     justifyContent: "space-evenly",
     color: theme.colors.white,
@@ -77,9 +78,6 @@ const Shop: React.FC = () => {
         backgroundImage: "url(/images/grass.jpeg)",
       }}
     >
-      <div className={classes.header}>
-        <h1>Tasuta transport!</h1>
-      </div>
       <div className={classes.page}>
         <Filter />
         <ProductList />
