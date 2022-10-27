@@ -16,6 +16,14 @@ const theme = {
     top: "0",
     backgroundAttachment: "fixed",
   },
+  spacing: {
+    xxs: 2,
+    xs: 4,
+    s: 8,
+    m: 16,
+    l: 24,
+    xl: 32,
+    },
 };
 
 export default theme;
