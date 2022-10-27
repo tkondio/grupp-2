@@ -1,4 +1,4 @@
-import Account from "../pages/Account";
+import Dashboard from "../pages/Dashboard";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -28,8 +28,8 @@ const NavigationPath: NavType[] = [
   },
   {
     name: "Kasutaja",
-    path: "/account",
-    component: Account,
+    path: "/dashboard",
+    component: Dashboard,
   },
   {
     name: "basketicon",

@@ -1,5 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
 import theme from "../common/theme";
 import ItemCard from "../components/ItemCard";
 import Navbar from "../components/Navbar";
@@ -21,6 +22,7 @@ const useStyles = createUseStyles({
   sidepanel: {
     display: "flex",
     flexDirection: "column",
+    position: "fixed",
     width: 300,
     height: "100vh",
     backgroundColor: theme.colors.lightGreen,
@@ -33,6 +35,7 @@ const useStyles = createUseStyles({
   productArea: {
     distplay: "flex",
     padding: 20,
+    marginLeft: 300,
     color: theme.colors.white,
   },
   toShop: {
@@ -42,6 +45,7 @@ const useStyles = createUseStyles({
     marginleft: 700,
     paddingTop: 30,
     color: theme.colors.white,
+    textDecoration: "none",
   },
 
   recommendedBox: {
@@ -52,8 +56,26 @@ const useStyles = createUseStyles({
   },
 });
 
-const Account: React.FC = () => {
+const Dashboard: React.FC = () => {
   const classes = useStyles();
+  const products = [
+    {
+      itemTitle: "Hall Suss",
+      itemDescription: "Lorem Ipsum Parim Suss: üks suurus sobib kõigile!",
+      itemPrice: 29,
+    },
+    {
+      itemTitle: "Hele Hall Suss",
+      itemDescription: "Lorem Ipsum Naiste Suss: kitsam liist ja kõrgem konts!",
+      itemPrice: 29,
+    },
+    {
+      itemTitle: "Tume Hall Suss",
+      itemDescription:
+        "Lorem Ipsum Spordisuss: hea pidamine ja parim kiirendus!",
+      itemPrice: 29,
+    },
+  ];
 
   return (
     <div className={classes.background}>
@@ -73,18 +95,20 @@ const Account: React.FC = () => {
           <div className={classes.productArea}>
             Soovitame sulle...
             <div className={classes.recommendedBox}>
-              <ItemCard></ItemCard>
-              <ItemCard></ItemCard>
-              <ItemCard></ItemCard>
+              <ItemCard
+                
+              ></ItemCard>
+              <ItemCard
+                
+              ></ItemCard>
+              <ItemCard
+                
+              ></ItemCard>
+              
             </div>
-            <div className={classes.toShop}>
-              liigu /selle lingi kaudu/ poodi, et avastada veel susse!
-            </div>
-          </div>
-
-          <div className={classes.productArea}>Soovitame sulle...</div>
-          <div className={classes.toShop}>
-            liigu /selle lingi kaudu/ poodi, et avastada veel susse!
+            <Link className={classes.toShop} to={"./shop"}>
+              liigu poodi, et avastada veel susse!
+            </Link>
           </div>
         </div>
       </div>
@@ -92,4 +116,4 @@ const Account: React.FC = () => {
   );
 };
 
-export default Account;
+export default Dashboard;

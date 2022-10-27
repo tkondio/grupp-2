@@ -9,6 +9,9 @@ import Typography from '@mui/material/Typography';
 type ItemCardProps = {}
 
 const ItemCard: React.FC<ItemCardProps> = () => {
+  const itemTtitle = "Hall Suss";
+  const itemDescription = "Lorem Ipsum Bestseller Item: Desireable, Fasionable, Affordable!"
+  const itemPrice = 29;
 return (
     <Card sx={{ maxWidth: 300}}>
     <CardMedia
@@ -19,16 +22,15 @@ return (
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          <div>{itemTtitle}</div>
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          <div>{itemDescription}</div>
+          <div>Hind: {itemPrice}</div>
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small">Osta!</Button>
       </CardActions>
     </Card>
 )
