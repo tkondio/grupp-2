@@ -12,6 +12,7 @@ const useStyles = createUseStyles({
     backgroundPosition: theme.backgroundImage.backgroundPosition,
     backgroundSize: theme.backgroundImage.backgroundSize,
     backgroundRepeat: theme.backgroundImage.backgroundRepeat,
+    height: "100vh",
     backgroundImage:
       "url(https://images.pexels.com/photos/2909067/pexels-photo-2909067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
   },
@@ -32,7 +33,7 @@ const useStyles = createUseStyles({
     padding: 20,
   },
   productArea: {
-    display: "flex",
+    distplay: "flex",
     padding: 20,
     marginLeft: 300,
     color: theme.colors.white,
@@ -96,6 +97,7 @@ const Dashboard: React.FC = () => {
               <ItemCard></ItemCard>
               <ItemCard></ItemCard>
               <ItemCard></ItemCard>
+
             </div>
             <Link className={classes.toShop} to={"./shop"}>
               liigu poodi, et avastada veel susse!
