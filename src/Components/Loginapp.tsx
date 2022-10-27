@@ -9,56 +9,83 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: 50, //ei saa aru, miks ta ulatub vaid Logi Sisse ja Rega ennast tekstile
+    gap: 10, 
   },
   loginform: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: 50,
+    gap: 24,
   },
 
   inputField: {
     boxSizing: "border-box",
-    width: "632px",
-    height: "95px",
+    width: "451px",
+    height: "53px",
     background: "rgba(255, 255, 255, 0.67)",
     borderbottom: "1px solid #000000",
+    "&::placeholder":{
+      fontSize: "20px",
+      fontFamily: "Khula",
+      fontStyle: "normal",
+      fontWeight: "300",
+      color: "#324327",
+    }
   },
 
-  letsRegister: {
-    position: "center",
-    width: "446px",
-    height: "43px",
-    left: "506px",
-    top: "863px",
+  placeholder: {
     fontFamily: "Khula",
     fontStyle: "normal",
     fontWeight: "300",
-    fontSize: "40px",
-    lineHeight: "108.02%",
-    display: "flex",
-    alignItems: "center",
-    letterSpacing: "-0.065em",
+    fontSize: "20px",
+    color: "#324327",
+  },
+
+  forgotPassword: {
+    fontFamily: "Khula",
+    fontStyle: "normal",
+    fontWeight: "300",
+    fontSize: "20px",
     color: "#FFFFFF",
+    lineheight: "108.02%",
+    alignItems: "center",
+
   },
 
   logInButton: {
-    position: "center",
     width: "169px",
     height: "43px",
-    left: "666px",
-    top: "751px",
     fontFamily: "Khula",
-    fontStyle: "normal",
-    fontWeight: "300",
-    fontSize: "40px",
+    fontStyle: "bold",
+    fontWeight: "600",
+    fontSize: "32px",
     lineHeight: "108.02%",
-    display: "flex",
     alignItems: "center",
     letterSpacing: "-0.065em",
     color: "#FFFFFF",
+    textDecoration: "none",
+    "&:hover": {
+      color: "#324327",
+    },
   },
+
+  letsRegister: {
+    width: "446px",
+    height: "43px",
+    fontFamily: "Khula",
+    fontStyle: "bold",
+    fontWeight: "450",
+    fontSize: "24px",
+    lineHeight: "108.02%",
+    letterSpacing: "-0.065em",
+    color: "#FFFFFF",
+    background: "rgba(255, 255, 255, 0.01)",
+    border: "none",
+    "&:hover": {
+      fontWeight: "600",
+    },
+  },
+
   background: {
     backgroundPosition: theme.backgroundImage.backgroundPosition,
     backgroundSize: theme.backgroundImage.backgroundSize,
@@ -105,8 +132,10 @@ export const Loginapp = (props: { onFormSwitch: (arg0: string) => void }) => {
           />{" "}
         </div>
 
+        <div> <label className={classes.forgotPassword}> Unustasid parooli? Vajuta <b>SIIA</b></label></div>
+
         <Link to="/shoppingbag" className={classes.logInButton}>
-          Logi sisse
+          LOGI SISSE
         </Link>
       </form>
 
@@ -114,7 +143,7 @@ export const Loginapp = (props: { onFormSwitch: (arg0: string) => void }) => {
         className={classes.letsRegister}
         onClick={() => props.onFormSwitch("register")}
       >
-        Ei ole kasutajat? Registreeru siin
+        Ei ole kasutajat? Registreeri siin
       </button>
     </div>
   );
