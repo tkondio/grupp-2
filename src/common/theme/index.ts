@@ -8,11 +8,13 @@ const theme = {
     lightGreen: "#6C7E65",
   },
   backgroundImage: {
-    backgroundPosition: "center",
+    backgroundPosition: "center fixed",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     width: "100vw",
     height: "100vh",
+    top: "0",
+    backgroundAttachment: "fixed",
   },
   spacing: {
     xxs: 2,

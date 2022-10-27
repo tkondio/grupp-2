@@ -5,17 +5,26 @@ import { Link } from "react-router-dom";
 
 const useStyles = createUseStyles({
 
+import { classicNameResolver } from "typescript";
+import { createUseStyles } from "react-jss";
+import theme from "../common/theme";
+
+const useStyles = createUseStyles({
+
   container: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+
     justifyContent: "space-between",
     gap: 50, //ei saa aru, miks ta ulatub vaid Logi Sisse ja Rega ennast tekstile
+
   },
   loginform: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+
     gap: 50
     
 
@@ -71,9 +80,12 @@ const useStyles = createUseStyles({
   },
 });
 
+  },
+});
 
 
 export const Loginapp = (props: { onFormSwitch: (arg0: string) => void }) => {
+  const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const classes = useStyles();
@@ -84,9 +96,16 @@ export const Loginapp = (props: { onFormSwitch: (arg0: string) => void }) => {
   };
 
   return (
+
 <div className={classes.container}>
 <form className={classes.loginform} onSubmit={handleSubmit}>
        <div> <input
+
+    <div className={classes.container}>
+      <form className={classes.loginform} onSubmit={handleSubmit}>
+        <label htmlFor="email">E-mail</label>
+        <input
+
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           type="email"
@@ -104,6 +123,7 @@ export const Loginapp = (props: { onFormSwitch: (arg0: string) => void }) => {
           placeholder="Sisesta oma parool siia"
           id="password"
           name="password"
+
           className={classes.inputField}
           
         /> </div>
@@ -117,6 +137,14 @@ export const Loginapp = (props: { onFormSwitch: (arg0: string) => void }) => {
         Ei ole kasutajat? Registreeru siin
        </button> 
  </div>
+        />
+        <button type="submit">Logi sisse</button>
+      </form>
+      <button onClick={() => props.onFormSwitch("register")}>
+        Ei ole kasutajat? Registreeru siin.
+      </button>
+    </div>
+
   );
 };
 function rgba(arg0: number, arg1: number, arg2: number, arg3: number) {
