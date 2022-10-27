@@ -10,6 +10,7 @@ const useStyles = createUseStyles({
     backgroundSize: theme.backgroundImage.backgroundSize,
     backgroundRepeat: theme.backgroundImage.backgroundRepeat,
     width: theme.backgroundImage.width,
+
     backgroundAttachment: theme.backgroundImage.backgroundAttachment,
     top: 0,
   },
