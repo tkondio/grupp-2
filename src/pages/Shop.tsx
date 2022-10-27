@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import { createUseStyles } from "react-jss";
 import theme from "../common/theme";
 import ProductList from "../components/ProductList";
@@ -78,7 +77,6 @@ const Shop: React.FC = () => {
         backgroundImage: "url(/images/grass.jpeg)",
       }}
     >
-      <Navbar />
       <div className={classes.header}>
         <h1>Tasuta transport!</h1>
       </div>
