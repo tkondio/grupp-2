@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import theme from "../common/theme";
 
 export const Registerapp = (props: {
   onFormSwitch: (arg0: string) => void;

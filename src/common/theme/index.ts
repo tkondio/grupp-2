@@ -14,6 +14,14 @@ const theme = {
     width: "100vw",
     height: "100vh",
   },
+  spacing: {
+    xxs: 2,
+    xs: 4,
+    s: 8,
+    m: 16,
+    l: 24,
+    xl: 32,
+    },
 };
 
 export default theme;
