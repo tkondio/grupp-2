@@ -3,7 +3,6 @@ import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 import theme from "../common/theme";
 import ItemCard from "../components/ItemCard";
-import Navbar from "../components/Navbar";
 
 // sidepanel
 // recommended
@@ -80,7 +79,6 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className={classes.background}>
-      <Navbar />
       <div>
         <div className={classes.page}>
           <div className={classes.sidepanel}>
@@ -99,7 +97,7 @@ const Dashboard: React.FC = () => {
               <ItemCard></ItemCard>
               <ItemCard></ItemCard>
               <ItemCard></ItemCard>
-              
+
             </div>
             <Link className={classes.toShop} to={"./shop"}>
               liigu poodi, et avastada veel susse!

@@ -3,7 +3,6 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 import theme from "../common/theme";
-import Navbar from "../components/Navbar";
 
 const useStyles = createUseStyles({
   catchphrase: {
@@ -73,7 +72,6 @@ const LandingPage: React.FC = () => {
       className={classes.background}
       style={{ backgroundImage: "url(images/lpbg.png)" }}
     >
-      <Navbar />
       <div className={classes.page}>
         <div className={classes.catchphrase}>
           Enam ei pea kodus paljajalu käima.
