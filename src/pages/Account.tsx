@@ -2,18 +2,21 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import theme from "../common/theme";
 import ItemCard from "../components/ItemCard";
+import Navbar from "../components/Navbar";
 
 // sidepanel
 // recommended
 // toShop
 const useStyles = createUseStyles({
   background: {
-    display: "flex",
     backgroundPosition: theme.backgroundImage.backgroundPosition,
     backgroundSize: theme.backgroundImage.backgroundSize,
     backgroundRepeat: theme.backgroundImage.backgroundRepeat,
     backgroundImage:
       "url(https://images.pexels.com/photos/2909067/pexels-photo-2909067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
+  },
+  page: {
+    display: "flex",
   },
   sidepanel: {
     display: "flex",
@@ -47,8 +50,6 @@ const useStyles = createUseStyles({
     paddingTop: 30,
     justifyContent: "space-between",
   },
-
-
 });
 
 const Account: React.FC = () => {
@@ -56,33 +57,37 @@ const Account: React.FC = () => {
 
   return (
     <div className={classes.background}>
-      <div className={classes.sidepanel}>
-        <div className={classes.userInfo}>
-          Tere kasutaja!
-          <div>Nimi:</div>
-          <div>email:</div>
-          <div>Aadress:</div>
-          <div>Telefon:</div>
+      <Navbar />
+      <div>
+        <div className={classes.page}>
+          <div className={classes.sidepanel}>
+            <div className={classes.userInfo}>
+              Tere kasutaja!
+              <div>Nimi:</div>
+              <div>email:</div>
+              <div>Aadress:</div>
+              <div>Telefon:</div>
+            </div>
+          </div>
+
+          <div className={classes.productArea}>
+            Soovitame sulle...
+            <div className={classes.recommendedBox}>
+              <ItemCard></ItemCard>
+              <ItemCard></ItemCard>
+              <ItemCard></ItemCard>
+            </div>
+            <div className={classes.toShop}>
+              liigu /selle lingi kaudu/ poodi, et avastada veel susse!
+            </div>
+          </div>
+
+          <div className={classes.productArea}>Soovitame sulle...</div>
+          <div className={classes.toShop}>
+            liigu /selle lingi kaudu/ poodi, et avastada veel susse!
+          </div>
         </div>
       </div>
-
-      <div className={classes.productArea}>Soovitame sulle...
-      <div className={classes.recommendedBox}>
-      <ItemCard></ItemCard>
-      <ItemCard></ItemCard>
-      <ItemCard></ItemCard>
-
-      </div>
-      <div className={classes.toShop}>liigu /selle lingi kaudu/ poodi, et avastada veel susse!</div>
-
-      </div>
-
-
-      <div className={classes.productArea}>Soovitame sulle...</div>
-      <div className={classes.toShop}>
-        liigu /selle lingi kaudu/ poodi, et avastada veel susse!
-      </div>
-
     </div>
   );
 };
