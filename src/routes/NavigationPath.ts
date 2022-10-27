@@ -1,7 +1,8 @@
-import Account from "../pages/Account";
+import Dashboard from "../pages/Dashboard";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Shop from "../pages/Shop";
 import ShoppingBag from "../pages/Shoppingbag";
 
 type NavType = {
@@ -28,13 +29,18 @@ const NavigationPath: NavType[] = [
   },
   {
     name: "Kasutaja",
-    path: "/account",
-    component: Account,
+    path: "/dashboard",
+    component: Dashboard,
   },
   {
-    name: "basketicon",
+    name: "Ostukorv",
     path: "/shoppingbag",
     component: ShoppingBag,
+  },
+  {
+    name: "Pood",
+    path: "/shop",
+    component: Shop,
   },
 ];
 

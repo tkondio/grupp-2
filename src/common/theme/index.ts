@@ -7,6 +7,7 @@ const theme = {
     middleGreen: "#6D795E",
     lightGreen: "#6C7E65",
     black: "#000000"
+    lightGrey: "rgba(217, 217, 217, 0.5)",
   },
   backgroundImage: {
     backgroundPosition: "center fixed",
@@ -24,7 +25,7 @@ const theme = {
     m: 16,
     l: 24,
     xl: 32,
-    },
+  },
 };
 
 export default theme;
