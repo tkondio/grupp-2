@@ -13,6 +13,7 @@ const useStyles = createUseStyles({
     backgroundSize: theme.backgroundImage.backgroundSize,
     backgroundRepeat: theme.backgroundImage.backgroundRepeat,
     height: "100vh",
+    
     backgroundImage:
       "url(https://images.pexels.com/photos/2909067/pexels-photo-2909067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
   },
@@ -27,6 +28,8 @@ const useStyles = createUseStyles({
     height: "100vh",
     backgroundColor: theme.colors.lightGreen,
     opacity: 0.8,
+    paddingTop: 90,
+    marginTop: 80,
   },
   userInfo: {
     color: "white",
@@ -35,6 +38,7 @@ const useStyles = createUseStyles({
   productArea: {
     distplay: "flex",
     padding: 20,
+    paddingTop: 90,
     marginLeft: 300,
     color: theme.colors.white,
   },
