@@ -2,6 +2,7 @@ import Account from "../pages/Account";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Shop from "../pages/Shop";
 import ShoppingBag from "../pages/Shoppingbag";
 
 type NavType = {
@@ -32,9 +33,14 @@ const NavigationPath: NavType[] = [
     component: Account,
   },
   {
-    name: "basketicon",
+    name: "Ostukorv",
     path: "/shoppingbag",
     component: ShoppingBag,
+  },
+  {
+    name: "Pood",
+    path: "/shop",
+    component: Shop,
   },
 ];
 
