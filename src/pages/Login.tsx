@@ -11,7 +11,8 @@ const useStyles = createUseStyles({
     backgroundSize: theme.backgroundImage.backgroundSize,
     backgroundRepeat: theme.backgroundImage.backgroundRepeat,
     width: theme.backgroundImage.width,
-    height: theme.backgroundImage.width,
+    height: theme.backgroundImage.height,
+    backgroundAttachment: theme.backgroundImage.backgroundAttachment
   },
   container: {
     textAlign: "center",

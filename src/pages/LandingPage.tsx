@@ -42,7 +42,7 @@ const useStyles = createUseStyles({
   },
   linkSeparator: {
     borderColor: theme.colors.lightGreen,
-    borderTop: "1px solid",
+    borderTop: "2px solid",
     //marginLeft: 0,
     //marginRight: 0,
     width: 180,
@@ -51,8 +51,8 @@ const useStyles = createUseStyles({
     backgroundPosition: theme.backgroundImage.backgroundPosition,
     backgroundSize: theme.backgroundImage.backgroundSize,
     backgroundRepeat: theme.backgroundImage.backgroundRepeat,
-    //width: theme.backgroundImage.width,
-    height: theme.backgroundImage.width,
+    width: theme.backgroundImage.width,
+    height: theme.backgroundImage.height,
     backgroundAttachment: theme.backgroundImage.backgroundAttachment,
   },
   page: {
@@ -71,7 +71,7 @@ const LandingPage: React.FC = () => {
   return (
     <div
       className={classes.background}
-      style={{ backgroundImage: "url(images/background_landingpage.png)" }}
+      style={{ backgroundImage: "url(images/lpbg.png)" }}
     >
       <Navbar />
       <div className={classes.page}>
