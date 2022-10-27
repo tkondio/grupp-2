@@ -1,23 +1,5 @@
 import React, { useState } from "react";
-import { createUseStyles } from "react-jss";
-import theme from "../common/theme";
-import { Link } from "react-router-dom";
-
-const useStyles = createUseStyles({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: 10, 
-  },
-  loginform: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: 24,
-  },
-});
+//import theme from "../common/theme";
 
 export const Registerapp = (props: {
   onFormSwitch: (arg0: string) => void;
@@ -25,7 +7,6 @@ export const Registerapp = (props: {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const classes = useStyles();
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -33,8 +14,8 @@ export const Registerapp = (props: {
   };
 
   return (
-    <div className={classes.container}>
-      <form className={classes.loginform} onSubmit={handleSubmit}>
+    <>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="name">Full name</label>
         <input
           onChange={(e) => setName(e.target.value)}
@@ -67,6 +48,6 @@ export const Registerapp = (props: {
       <button onClick={() => props.onFormSwitch("login")}>
         Sul on juba kasutaja? Logi sisse siin.
       </button>
-    </div>
+    </>
   );
 };
