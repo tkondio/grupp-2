@@ -31,7 +31,7 @@ const useStyles = createUseStyles({
     padding: 20,
   },
   productArea: {
-    distplay: "flex",
+    display: "flex",
     padding: 20,
     color: theme.colors.white,
   },
