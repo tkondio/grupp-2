@@ -1,8 +1,8 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import theme from "../common/theme";
+import Cart from "../components/Cart";
 import ProductList from "../components/ProductList";
-import Filter from "../components/Filter";
 
 const useStyles = createUseStyles({
   background: {
@@ -21,10 +21,9 @@ const useStyles = createUseStyles({
   page: {
     paddingTop: 100,
     padding: 30,
-    display: "flex",
-    justifyContent: "space-evenly",
-    color: theme.colors.white,
-    gap: 30,
+    color: "white",
+    display: "inline-flex",
+    justifyContent: "space-between",
   },
   sidepanel: {
     backgroundColor: theme.colors.lightGrey,
@@ -80,8 +79,8 @@ const Shop: React.FC = () => {
       }}
     >
       <div className={classes.page}>
-        <Filter />
         <ProductList />
+        <Cart />
       </div>
     </div>
   );
