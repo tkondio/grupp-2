@@ -8,6 +8,8 @@ const theme = {
     lightGreen: "#6C7E65",
     black: "#000000",
     lightGrey: "rgba(217, 217, 217, 0.5)",
+    sageGreen: "#BFCCBA",
+    inputBoxColor: "rgba(255, 255, 255, 0.67)",
   },
   backgroundImage: {
     backgroundPosition: "center fixed",
