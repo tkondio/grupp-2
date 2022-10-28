@@ -1,5 +1,5 @@
 import React from "react";
-import { /*useLocation,*/ Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 //import NavigationPath from "../routes/NavigationPath";
 import { createUseStyles } from "react-jss";
 import theme from "../common/theme";
@@ -17,7 +17,7 @@ const useStyles = createUseStyles({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "0px 60px 0px 0px",
-    backgroundColor: "transparent",
+    // backgroundColor: "transparent",
   },
   title: {
     fontSize: 20,
@@ -28,6 +28,7 @@ const useStyles = createUseStyles({
     left: 20,
     top: 9,
     width: 70,
+    
   },
   icons: {
     listStyleType: "none",
@@ -51,7 +52,7 @@ const useStyles = createUseStyles({
 });
 
 const Navbar: React.FC = () => {
-  //const location = useLocation();
+  const location = useLocation();
   const classes = useStyles();
 
   return (
@@ -66,8 +67,8 @@ const Navbar: React.FC = () => {
         <li>
           <img
             className={classes.img}
-            src="images/searchicon.png"
-            alt="Search" /*onClick={this.myfunction}*/
+            //src="images/searchicon.png"
+            //alt="Search" /*onClick={this.myfunction}*/
           />
         </li>
         <li>
