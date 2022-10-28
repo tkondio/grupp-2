@@ -9,7 +9,7 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: 10, 
+    gap: 20, 
   },
   header: {
     fontFamily: "Montserrat",
@@ -19,27 +19,33 @@ const useStyles = createUseStyles({
     lineHeight: "108.02%",
     alignItems: "center",
     letterSpacing: "-0.02em",
-    color: "#FFFFFF",
+    color: theme.colors.white,
     textDecoration: "none",
+    marginBottom: "30px",
+    marginTop: "50px",
   },
   loginform: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: 24,
+    gap: 8,
   },
   inputField: {
     boxSizing: "border-box",
     width: "451px",
     height: "53px",
-    background: "rgba(255, 255, 255, 0.67)",
-    borderbottom: "1px solid #000000",
+    fontSize: "20px",
+    fontFamily: "Montserrat",
+    color: theme.colors.darkGreen,
+    padding: "12px 12px",
+    background: theme.colors.inputBoxColor,
+    border: "1px solid #324327",
     "&::placeholder":{
       fontSize: "20px",
       fontFamily: "Montserrat",
       fontStyle: "normal",
       fontWeight: "300",
-      color: "#324327",
+      color: theme.colors.darkGreen,
     }
   },
   registerButton: {
@@ -52,20 +58,22 @@ const useStyles = createUseStyles({
     lineHeight: "108.02%",
     alignItems: "center",
     letterSpacing: "-0.02em",
-    color: "#FFFFFF",
+    color: theme.colors.white,
     background: "none",
     border: "none",
     textDecoration: "none",
     "&:hover": {
-      color: "#324327",
+      color: theme.colors.sageGreen,
+      cursor: "pointer",
     },
   },
   terms: {
+    marginTop: 20,
     fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: "300",
     fontSize: "20px",
-    color: "#FFFFFF",
+    color: theme.colors.white,
     lineheight: "108.02%",
     alignItems: "center",
   },
@@ -78,12 +86,13 @@ const useStyles = createUseStyles({
     lineHeight: "108.02%",
     alignItems: "center",
     letterSpacing: "-0.02em",
-    color: "#FFFFFF",
+    color: theme.colors.white,
     background: "none",
     border: "none",
     textDecoration: "none",
     "&:hover": {
-      color: "#324327",
+      fontWeight: "600",
+      cursor: "pointer",
     },
   },
 });
@@ -92,7 +101,8 @@ export const Registerapp = (props: {
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const classes = useStyles();
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
@@ -105,11 +115,20 @@ export const Registerapp = (props: {
       <form className={classes.loginform} onSubmit={handleSubmit}>
       <label className={classes.header}> Registreeri kasutajaks </label>
         <input
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-          name="name"
-          id="name"
-          placeholder="Sisesta oma nimi siia"
+          onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
+          name="firstName"
+          id="firstName"
+          placeholder="Sinu eesnimi"
+          type="text"
+          className={classes.inputField}
+        />
+        <input
+          onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
+          name="lastname"
+          id="lastname"
+          placeholder="Sinu perekonnanimi"
           type="text"
           className={classes.inputField}
         />
@@ -117,7 +136,7 @@ export const Registerapp = (props: {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           type="email"
-          placeholder="Sisesta oma e-mail siia"
+          placeholder="E-mail"
           id="email"
           name="email"
           className={classes.inputField}
@@ -126,16 +145,16 @@ export const Registerapp = (props: {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           type="password"
-          placeholder="Sisesta oma parool siia"
+          placeholder="Parool"
           id="password"
           name="password"
           className={classes.inputField}
         />
-        <label className={classes.terms}> Kliendiks registreerudes nõustute meie kliendiandmete töötlemise tingimustega </label>
+        <label className={classes.terms}> Kliendiks registreerudes nõustud meie kliendiandmete töötlemise tingimustega </label>
         <button className={classes.registerButton} type="submit" onClick={() => props.onFormSwitch("login")}>REGISTREERI</button>
       </form>
       <button className={classes.backToLogin} onClick={() => props.onFormSwitch("login")}>
-        Sul on juba kasutaja? Logi sisse <b>siin</b>
+        Sul on juba kasutaja? Logi sisse siin
       </button>
     </div>
   );
