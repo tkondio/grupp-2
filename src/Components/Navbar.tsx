@@ -65,13 +65,6 @@ const Navbar: React.FC = () => {
       <div className={classes.title}>Sussikaubamaja SINU SUSS</div>
       <ul className={classes.icons}>
         <li>
-          <img
-            className={classes.img}
-            //src="images/searchicon.png"
-            //alt="Search" /*onClick={this.myfunction}*/
-          />
-        </li>
-        <li>
           <Link to="/login">
             <div>
               <img

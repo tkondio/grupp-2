@@ -20,6 +20,9 @@ const theme = {
     top: "0",
     backgroundAttachment: "fixed",
   },
+  font: {
+    fontFamily: "Monserrat"
+  },
   spacing: {
     xxs: 2,
     xs: 4,

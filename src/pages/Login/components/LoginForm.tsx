@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
-import theme from "../common/theme";
+import theme from "../../../common/theme";
 import { Link } from "react-router-dom";
 const useStyles = createUseStyles({
   container: {
@@ -83,7 +83,7 @@ const useStyles = createUseStyles({
     height: theme.backgroundImage.width,
   },
 });
-export const Loginapp = (props: { onFormSwitch: (arg0: string) => void }) => {
+export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const classes = useStyles();

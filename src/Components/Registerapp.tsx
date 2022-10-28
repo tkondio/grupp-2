@@ -35,7 +35,7 @@ const useStyles = createUseStyles({
     width: "451px",
     height: "53px",
     fontSize: "20px",
-    fontFamily: "Montserrat",
+    fontFamily: theme.font.fontFamily,
     color: theme.colors.darkGreen,
     padding: "12px 12px",
     background: theme.colors.inputBoxColor,

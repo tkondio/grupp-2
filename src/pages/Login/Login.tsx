@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Loginapp } from "../components/Loginapp";
-import { Registerapp } from "../components/Registerapp";
+import { LoginForm } from "./components/LoginForm";
+import { Registerapp } from "../../components/Registerapp";
 import { createUseStyles } from "react-jss";
-import theme from "../common/theme";
+import theme from "../../common/theme";
 
 const useStyles = createUseStyles({
   background: {
@@ -12,6 +12,8 @@ const useStyles = createUseStyles({
     width: theme.backgroundImage.width,
     height: theme.backgroundImage.height,
     backgroundAttachment: theme.backgroundImage.backgroundAttachment,
+    backgroundImage: "url(/images/grass.jpeg)",
+
   },
   container: {
     textAlign: "center",
@@ -33,14 +35,11 @@ const Login: React.FC = () => {
   return (
     <div
       className={classes.background}
-      style={{
-        backgroundImage: "url(/images/grass.jpeg)",
-      }}
     >
       <div>
         <div className={classes.container}>
           {currentForm === "login" ? (
-            <Loginapp onFormSwitch={toggleForm} />
+            <LoginForm onFormSwitch={toggleForm} />
           ) : (
             <Registerapp onFormSwitch={toggleForm} />
           )}
