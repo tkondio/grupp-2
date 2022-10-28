@@ -6,7 +6,7 @@ import ItemCard from "./ItemCard";
 const useStyles = createUseStyles({
   gridContainer: {
     display: "grid",
-    gridTemplateColumns: "auto auto auto",
+    gridTemplateColumns: "auto auto",
     backgroundColor: theme.colors.lightGrey,
     padding: 20,
   },
