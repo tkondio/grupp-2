@@ -39,16 +39,16 @@ const useStyles = createUseStyles({
     color: theme.colors.white,
     fontSize: 40,
     transition: "0.3",
+    "&:not(:first-child)": {
+      borderColor: theme.colors.lightGreen,
+      borderTop: "2px solid",
+
+      width: 180,
+    },
     "&:hover": {
       color: theme.colors.lightGreen,
+
     }
-  },
-  linkSeparator: {
-    borderColor: theme.colors.lightGreen,
-    borderTop: "2px solid",
-    //marginLeft: 0,
-    //marginRight: 0,
-    width: 180,
   },
   background: {
     backgroundPosition: theme.backgroundImage.backgroundPosition,
@@ -57,6 +57,7 @@ const useStyles = createUseStyles({
     width: theme.backgroundImage.width,
     height: theme.backgroundImage.height,
     backgroundAttachment: theme.backgroundImage.backgroundAttachment,
+    backgroundImage: "url(images/lpbg2.png)"
   },
   page: {
     padding: 50,
@@ -74,7 +75,6 @@ const LandingPage: React.FC = () => {
   return (
     <div
       className={classes.background}
-      style={{ backgroundImage: "url(images/lpbg2.png)" }}
     >
       <div className={classes.page}>
         <div className={classes.catchphrase}>
@@ -82,12 +82,10 @@ const LandingPage: React.FC = () => {
         </div>
 
         <div className={classes.landingLinks}>
-          <Link to="./Shop" className={classes.landingLink}>
+          <Link to="/shop" className={classes.landingLink}>
             MEHED
           </Link>
-          <div className={classes.linkSeparator}></div>
-
-          <Link to="./Shop" className={classes.landingLink}>
+          <Link to="/shop" className={classes.landingLink}>
             NAISED
           </Link>
         </div>

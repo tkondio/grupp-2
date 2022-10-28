@@ -5,13 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Product } from "../models/Product";
 
-type ItemCardProps = {}
+type ItemCardProps = {
+  product: Product
+}
 
-const ItemCard: React.FC<ItemCardProps> = () => {
-  const itemTtitle = "Hall Suss";
-  const itemDescription = "Lorem Ipsum Bestseller Item: Desireable, Fasionable, Affordable!"
-  const itemPrice = 29;
+const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
 return (
     <Card sx={{ maxWidth: 300}}>
     <CardMedia
@@ -22,11 +22,11 @@ return (
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          <div>{itemTtitle}</div>
+          <div>{product.itemTitle}</div>
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          <div>{itemDescription}</div>
-          <div>Hind: {itemPrice}</div>
+          <div>{product.itemDescription}</div>
+          <div>Hind: {product.itemPrice}</div>
         </Typography>
       </CardContent>
       <CardActions>

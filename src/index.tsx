@@ -3,8 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavigationPath from "./routes/NavigationPath";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import LayoutWrapper from "./components/LayoutWrapper";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,13 +11,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Navbar />
       <Routes>
         {NavigationPath.map((el) => (
-          <Route path={el.path} element={<el.component />} key={el.path} />
+          <Route path={el.path} element={<LayoutWrapper><el.component /></LayoutWrapper>} key={el.path} />
         ))}
       </Routes>
-      <Footer />
     </BrowserRouter>
   </React.StrictMode>
 );
