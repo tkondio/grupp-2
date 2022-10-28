@@ -18,7 +18,7 @@ const useStyles = createUseStyles({
     position: "relative",
     //fontFamily: "Montserrat",
     fontStyle: "normal",
-    fontWeight: 300,
+    fontWeight: 400,
     //lineHeight: 67,
     textAlign: "left",
     letterSpacing: "-0.075em",
@@ -38,6 +38,10 @@ const useStyles = createUseStyles({
     textDecoration: "none",
     color: theme.colors.white,
     fontSize: 40,
+    transition: "0.3",
+    "&:hover": {
+      color: theme.colors.lightGreen,
+    }
   },
   linkSeparator: {
     borderColor: theme.colors.lightGreen,
@@ -70,7 +74,7 @@ const LandingPage: React.FC = () => {
   return (
     <div
       className={classes.background}
-      style={{ backgroundImage: "url(images/lpbg.png)" }}
+      style={{ backgroundImage: "url(images/lpbg2.png)" }}
     >
       <div className={classes.page}>
         <div className={classes.catchphrase}>
