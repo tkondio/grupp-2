@@ -21,7 +21,7 @@ const theme = {
     backgroundAttachment: "fixed",
   },
   font: {
-    fontFamily: "Monserrat"
+    fontFamily: "Montserrat",
   },
   spacing: {
     xxs: 2,

@@ -1,8 +1,8 @@
+//import CartDemo from "../pages/CartDemo";
 import Dashboard from "../pages/Dashboard";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login/Login";
-import Register from "../pages/Register";
-import ShoppingBag from "../pages/Shoppingbag";
+import ShoppingCart from "../pages/ShoppingCart";
 
 type NavType = {
   name: string;
@@ -17,14 +17,9 @@ const NavigationPath: NavType[] = [
     component: LandingPage,
   },
   {
-    name: "accounticon",
+    name: "Login",
     path: "/login",
     component: Login,
-  },
-  {
-    name: "Registreeru",
-    path: "/register",
-    component: Register,
   },
   {
     name: "Kasutaja",
@@ -32,10 +27,15 @@ const NavigationPath: NavType[] = [
     component: Dashboard,
   },
   {
-    name: "Ostukorv",
-    path: "/shoppingbag",
-    component: ShoppingBag,
-  }
+    name: "Pood ja ostukorv",
+    path: "/shoppingcart",
+    component: ShoppingCart,
+  },
+  /*{
+    name: "Pood ja ostukorvfds",
+    path: "/cartdemo",
+    component: CartDemo,
+  },*/
 ];
 
 export default NavigationPath;

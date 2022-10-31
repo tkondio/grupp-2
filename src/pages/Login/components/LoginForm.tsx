@@ -100,7 +100,7 @@ export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            placeholder="Sisesta oma e-mail siia"
+            placeholder="E-mail"
             id="email"
             name="email"
             className={classes.inputField}
@@ -111,7 +111,7 @@ export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
-            placeholder="Sisesta oma parool siia"
+            placeholder="Parool"
             id="password"
             name="password"
             className={classes.inputField}
@@ -121,18 +121,18 @@ export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
           {" "}
           <label className={classes.forgotPassword}>
             {" "}
-            Unustasid parooli? Vajuta <b>SIIA</b>
+            Unustasid parooli? Vajuta <b>SIIA</b>!
           </label>
         </div>
-        <Link to="/shoppingbag" className={classes.logInButton}>
+        <Link to="/dashboard" className={classes.logInButton}>
           LOGI SISSE
         </Link>
-      </form>     
+      </form>
       <button
         className={classes.letsRegister}
         onClick={() => props.onFormSwitch("register")}
       >
-        Ei ole kasutajat? Registreeri siin
+        Ei ole kasutajat? Registreeri siin.
       </button>
     </div>
   );

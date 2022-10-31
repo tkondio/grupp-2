@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
-import theme from "../common/theme";
-
+import theme from "../../../common/theme";
 
 const useStyles = createUseStyles({
   container: {
@@ -9,7 +8,7 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: 20, 
+    gap: 20,
   },
   header: {
     fontFamily: "Montserrat",
@@ -40,13 +39,13 @@ const useStyles = createUseStyles({
     padding: "12px 12px",
     background: theme.colors.inputBoxColor,
     border: "1px solid #324327",
-    "&::placeholder":{
+    "&::placeholder": {
       fontSize: "20px",
       fontFamily: "Montserrat",
       fontStyle: "normal",
       fontWeight: "300",
       color: theme.colors.darkGreen,
-    }
+    },
   },
   registerButton: {
     width: "169px",
@@ -78,7 +77,6 @@ const useStyles = createUseStyles({
     alignItems: "center",
   },
   backToLogin: {
-   
     fontFamily: "Montserrat",
     fontStyle: "bold",
     fontWeight: "300",
@@ -96,7 +94,7 @@ const useStyles = createUseStyles({
     },
   },
 });
-export const Registerapp = (props: {
+export const RegisterForm = (props: {
   onFormSwitch: (arg0: string) => void;
 }) => {
   const [email, setEmail] = useState("");
@@ -113,13 +111,13 @@ export const Registerapp = (props: {
   return (
     <div className={classes.container}>
       <form className={classes.loginform} onSubmit={handleSubmit}>
-      <label className={classes.header}> Registreeri kasutajaks </label>
+        <label className={classes.header}> Registreeri kasutajaks </label>
         <input
           onChange={(e) => setFirstName(e.target.value)}
           value={firstName}
           name="firstName"
           id="firstName"
-          placeholder="Sinu eesnimi"
+          placeholder="Eesnimi"
           type="text"
           className={classes.inputField}
         />
@@ -128,7 +126,7 @@ export const Registerapp = (props: {
           value={lastName}
           name="lastname"
           id="lastname"
-          placeholder="Sinu perekonnanimi"
+          placeholder="Perekonnanimi"
           type="text"
           className={classes.inputField}
         />
@@ -150,11 +148,20 @@ export const Registerapp = (props: {
           name="password"
           className={classes.inputField}
         />
-        <label className={classes.terms}> Kliendiks registreerudes nõustud meie kliendiandmete töötlemise tingimustega </label>
-        <button className={classes.registerButton} type="submit" onClick={() => props.onFormSwitch("login")}>REGISTREERI</button>
+        <label className={classes.terms}>
+          {" "}
+          Kliendiks registreerudes nõustud meie kliendiandmete töötlemise
+          tingimustega.{" "}
+        </label>
+        <button className={classes.registerButton} type="submit">
+          REGISTREERI
+        </button>
       </form>
-      <button className={classes.backToLogin} onClick={() => props.onFormSwitch("login")}>
-        Sul on juba kasutaja? Logi sisse siin
+      <button
+        className={classes.backToLogin}
+        onClick={() => props.onFormSwitch("login")}
+      >
+        Sul on juba kasutaja? Logi sisse siin.
       </button>
     </div>
   );

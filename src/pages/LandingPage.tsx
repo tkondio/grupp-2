@@ -1,4 +1,3 @@
-import { flexbox } from "@mui/system";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
@@ -47,8 +46,7 @@ const useStyles = createUseStyles({
     },
     "&:hover": {
       color: theme.colors.lightGreen,
-
-    }
+    },
   },
   background: {
     backgroundPosition: theme.backgroundImage.backgroundPosition,
@@ -57,7 +55,7 @@ const useStyles = createUseStyles({
     width: theme.backgroundImage.width,
     height: theme.backgroundImage.height,
     backgroundAttachment: theme.backgroundImage.backgroundAttachment,
-    backgroundImage: "url(images/lpbg2.png)"
+    backgroundImage: "url(images/lpbg2.png)",
   },
   page: {
     padding: 50,
@@ -73,19 +71,17 @@ const LandingPage: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <div
-      className={classes.background}
-    >
+    <div className={classes.background}>
       <div className={classes.page}>
         <div className={classes.catchphrase}>
           Enam ei pea kodus paljajalu käima.
         </div>
 
         <div className={classes.landingLinks}>
-          <Link to="/shop" className={classes.landingLink}>
+          <Link to="/login" className={classes.landingLink}>
             MEHED
           </Link>
-          <Link to="/shop" className={classes.landingLink}>
+          <Link to="/login" className={classes.landingLink}>
             NAISED
           </Link>
         </div>

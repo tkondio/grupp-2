@@ -1,6 +1,5 @@
 import React from "react";
-import { useLocation, Link } from "react-router-dom";
-//import NavigationPath from "../routes/NavigationPath";
+import { Link } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 import theme from "../common/theme";
 
@@ -28,7 +27,6 @@ const useStyles = createUseStyles({
     left: 20,
     top: 9,
     width: 70,
-    
   },
   icons: {
     listStyleType: "none",
@@ -52,7 +50,6 @@ const useStyles = createUseStyles({
 });
 
 const Navbar: React.FC = () => {
-  const location = useLocation();
   const classes = useStyles();
 
   return (
@@ -63,30 +60,16 @@ const Navbar: React.FC = () => {
         </div>
       </Link>
       <div className={classes.title}>Sussikaubamaja SINU SUSS</div>
-      <ul className={classes.icons}>
-        <li>
-          <Link to="/login">
-            <div>
-              <img
-                src="images/accounticon.png"
-                alt="Account"
-                className={classes.img}
-              />
-            </div>
-          </Link>
-        </li>
-        <li>
-          <Link to="/shoppingbag">
-            <div>
-              <img
-                src="images/basketicon.png"
-                alt="Account"
-                className={classes.img}
-              />
-            </div>
-          </Link>
-        </li>
-      </ul>
+
+      <Link to="/login">
+        <div>
+          <img
+            src="images/accounticon.png"
+            alt="Account"
+            className={classes.img}
+          />
+        </div>
+      </Link>
     </div>
   );
 };
