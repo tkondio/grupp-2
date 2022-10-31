@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
+import { useNavigate } from "react-router-dom";
+import { registerUser } from "../../../api/controller/authController";
 import theme from "../../../common/theme";
+import { setAuthToken } from "../../../helpers/authHelpers";
+//import registerUser
 
 const useStyles = createUseStyles({
   container: {
@@ -103,9 +107,25 @@ export const RegisterForm = (props: {
   const [lastName, setLastName] = useState("");
   const classes = useStyles();
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log(email);
+    const newUser = {
+      email,
+      password,
+      firstName,
+      lastName,
+    };
+    const response = await registerUser(newUser);
+    if (response.isSuccess === true) {
+      const { accessToken } = response.body;
+      if (accessToken) {
+        setAuthToken(accessToken);
+        navigate("/dashboard");
+      }
+    }
+    // console.log(email, password, firstName, lastName);
   };
 
   return (
