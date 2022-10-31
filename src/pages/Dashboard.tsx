@@ -3,11 +3,10 @@ import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 import theme from "../common/theme";
 import ItemCard from "../components/ItemCard";
+import TemporaryUserField from "../components/TemporaryUserField";
 import { Product } from "../models/Product";
+import { TemporaryUser } from "../models/TemporaryUser";
 
-// sidepanel
-// recommended
-// toShop
 const useStyles = createUseStyles({
   background: {
     backgroundPosition: theme.backgroundImage.backgroundPosition,
@@ -42,6 +41,9 @@ const useStyles = createUseStyles({
     paddingTop: 90,
     marginLeft: 300,
     color: theme.colors.white,
+    backgroundColor: theme.colors.lightGrey,
+    opacity: 0.8,
+    marginTop: 80,
   },
   toShop: {
     display: "flex",
@@ -63,6 +65,11 @@ const useStyles = createUseStyles({
 
 const Dashboard: React.FC = () => {
   const classes = useStyles();
+
+  const temporaryUser: TemporaryUser[] = [
+    { id: "u1", temporaryName: "Jaan", temporarySurname: "Tamm" },
+  ];
+
   const products: Product[] = [
     {
       id: "e1",
@@ -89,17 +96,18 @@ const Dashboard: React.FC = () => {
     <div className={classes.background}>
       <div>
         <div className={classes.page}>
-          <div className={classes.sidepanel}>
-            <div className={classes.userInfo}>
-              Tere kasutaja!
-              <div>Nimi:</div>
-              <div>email:</div>
-              <div>Aadress:</div>
-              <div>Telefon:</div>
-            </div>
-          </div>
+          <div className={classes.sidepanel}></div>
 
           <div className={classes.productArea}>
+            <div>
+              Tere tulemast!
+              {temporaryUser.map((temporaryUser) => (
+                <TemporaryUserField
+                  temporaryUser={temporaryUser}
+                  key={temporaryUser.id}
+                />
+              ))}
+            </div>
             Soovitame sulle...
             <div className={classes.recommendedBox}>
               {products.map((product) => (
