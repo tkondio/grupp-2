@@ -2,20 +2,18 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 import theme from "../common/theme";
-import CartItem from "../components/CartItem";
 import ItemCard from "../components/ItemCard";
+import TemporaryUserField from "../components/TemporaryUserField";
 import { Product } from "../models/Product";
+import { TemporaryUser } from "../models/TemporaryUser";
 
-// sidepanel
-// recommended
-// toShop
 const useStyles = createUseStyles({
   background: {
     backgroundPosition: theme.backgroundImage.backgroundPosition,
     backgroundSize: theme.backgroundImage.backgroundSize,
     backgroundRepeat: theme.backgroundImage.backgroundRepeat,
     height: "100vh",
-    
+
     backgroundImage:
       "url(https://images.pexels.com/photos/2909067/pexels-photo-2909067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
   },
@@ -43,6 +41,9 @@ const useStyles = createUseStyles({
     paddingTop: 90,
     marginLeft: 300,
     color: theme.colors.white,
+    backgroundColor: theme.colors.lightGrey,
+    opacity: 0.8,
+    marginTop: 80,
   },
   toShop: {
     display: "flex",
@@ -64,18 +65,26 @@ const useStyles = createUseStyles({
 
 const Dashboard: React.FC = () => {
   const classes = useStyles();
+
+  const temporaryUser: TemporaryUser[] = [
+    { id: "u1", temporaryName: "Jaan", temporarySurname: "Tamm" },
+  ];
+
   const products: Product[] = [
-    {id: "e1",
+    {
+      id: "e1",
       itemTitle: "Hall Suss",
       itemDescription: "Lorem Ipsum Parim Suss: üks suurus sobib kõigile!",
       itemPrice: 29,
     },
-    {id: "e2",
+    {
+      id: "e2",
       itemTitle: "Hele Hall Suss",
       itemDescription: "Lorem Ipsum Naiste Suss: kitsam liist ja kõrgem konts!",
       itemPrice: 29,
     },
-    {id: "e3",
+    {
+      id: "e3",
       itemTitle: "Tume Hall Suss",
       itemDescription:
         "Lorem Ipsum Spordisuss: hea pidamine ja parim kiirendus!",
@@ -87,20 +96,23 @@ const Dashboard: React.FC = () => {
     <div className={classes.background}>
       <div>
         <div className={classes.page}>
-          <div className={classes.sidepanel}>
-            <div className={classes.userInfo}>
-              Tere kasutaja!
-              <div>Nimi:</div>
-              <div>email:</div>
-              <div>Aadress:</div>
-              <div>Telefon:</div>
-            </div>
-          </div>
+          <div className={classes.sidepanel}></div>
 
           <div className={classes.productArea}>
+            <div>
+              Tere tulemast!
+              {temporaryUser.map((temporaryUser) => (
+                <TemporaryUserField
+                  temporaryUser={temporaryUser}
+                  key={temporaryUser.id}
+                />
+              ))}
+            </div>
             Soovitame sulle...
             <div className={classes.recommendedBox}>
-            {products.map(product => (<ItemCard product={product} key={product.id} />))}
+              {products.map((product) => (
+                <ItemCard product={product} key={product.id} />
+              ))}
             </div>
             <Link className={classes.toShop} to={"./shop"}>
               liigu poodi, et avastada veel susse!
