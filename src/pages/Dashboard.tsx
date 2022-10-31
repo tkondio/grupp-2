@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
+import { getCurrentUser } from "../api/controller/authController";
 import theme from "../common/theme";
+import useEffectAsync from "../common/useEffectAsync";
 import ItemCard from "../components/ItemCard";
 import TemporaryUserField from "../components/TemporaryUserField";
+import { AuthUser } from "../models/AuthUser";
 import { Product } from "../models/Product";
 import { TemporaryUser } from "../models/TemporaryUser";
 
@@ -65,6 +68,14 @@ const useStyles = createUseStyles({
 
 const Dashboard: React.FC = () => {
   const classes = useStyles();
+  const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
+
+  useEffectAsync(async () => {
+    const response = await getCurrentUser();
+    if (response.isSuccess === true) {
+      setCurrentUser(response.body);
+    }
+  }, []);
 
   const temporaryUser: TemporaryUser[] = [
     { id: "u1", temporaryName: "Jaan", temporarySurname: "Tamm" },
@@ -101,12 +112,13 @@ const Dashboard: React.FC = () => {
           <div className={classes.productArea}>
             <div>
               Tere tulemast!
-              {temporaryUser.map((temporaryUser) => (
+              {`${currentUser?.firstName} ${currentUser?.lastName}`}
+              {/* {temporaryUser.map((temporaryUser) => (
                 <TemporaryUserField
                   temporaryUser={temporaryUser}
                   key={temporaryUser.id}
                 />
-              ))}
+              ))} */}
             </div>
             Soovitame sulle...
             <div className={classes.recommendedBox}>
