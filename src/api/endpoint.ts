@@ -4,6 +4,7 @@ const ApiPath = {
   Auth: {
     register: "/auth/register",
     currentUser: "/auth/current-user",
+    logIn: "/auth/login",
   },
 };
 
