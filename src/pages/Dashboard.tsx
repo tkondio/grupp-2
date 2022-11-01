@@ -5,10 +5,8 @@ import { getCurrentUser } from "../api/controller/authController";
 import theme from "../common/theme";
 import useEffectAsync from "../common/useEffectAsync";
 import ItemCard from "../components/ItemCard";
-import TemporaryUserField from "../components/TemporaryUserField";
 import { AuthUser } from "../models/AuthUser";
 import { Product } from "../models/Product";
-import { TemporaryUser } from "../models/TemporaryUser";
 
 const useStyles = createUseStyles({
   background: {
@@ -77,10 +75,6 @@ const Dashboard: React.FC = () => {
     }
   }, []);
 
-  const temporaryUser: TemporaryUser[] = [
-    { id: "u1", temporaryName: "Jaan", temporarySurname: "Tamm" },
-  ];
-
   const products: Product[] = [
     {
       id: "e1",
@@ -113,12 +107,6 @@ const Dashboard: React.FC = () => {
             <div>
               Tere tulemast!
               {`${currentUser?.firstName} ${currentUser?.lastName}`}
-              {/* {temporaryUser.map((temporaryUser) => (
-                <TemporaryUserField
-                  temporaryUser={temporaryUser}
-                  key={temporaryUser.id}
-                />
-              ))} */}
             </div>
             Soovitame sulle...
             <div className={classes.recommendedBox}>
