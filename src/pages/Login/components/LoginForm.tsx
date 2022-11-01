@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import theme from "../../../common/theme";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../../../api/controller/authController";
+import { setAuthToken } from "../../../helpers/authHelpers";
+
 const useStyles = createUseStyles({
   container: {
     display: "flex",
@@ -86,10 +89,26 @@ const useStyles = createUseStyles({
 export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
   const classes = useStyles();
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log(email);
+    const loginNewUser = {
+      email,
+      password,
+    };
+
+    const response = await loginUser(loginNewUser);
+    if (response.isSuccess === true) {
+      const { accessToken } = response.body;
+      if (accessToken) {
+        setAuthToken(accessToken);
+        navigate("/dashboard");
+      }
+    }
+    // console.log(email, password, firstName, lastName);
   };
   return (
     <div className={classes.container}>
@@ -124,9 +143,9 @@ export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
             Unustasid parooli? Vajuta <b>SIIA</b>!
           </label>
         </div>
-        <Link to="/dashboard" className={classes.logInButton}>
+        <button className={classes.logInButton} type="submit">
           LOGI SISSE
-        </Link>
+        </button>
       </form>
       <button
         className={classes.letsRegister}
