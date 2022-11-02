@@ -53,23 +53,36 @@ const Dashboard: React.FC = () => {
   const classes = useStyles();
   const products: Product[] = [
     {
-      id: "e1",
-      itemTitle: "Hall Suss",
-      itemDescription: "Lorem Ipsum Parim Suss: üks suurus sobib kõigile!",
-      itemPrice: 29,
+      id: "1",
+      name: "Hall Suss",
+      description: "Lorem Ipsum Parim Suss: üks suurus sobib kõigile!",
+      price: 29,
+      size: 36,
+      imageUrl: "http://localhost:8000/images/shoe-01.jpg",
     },
     {
-      id: "e2",
-      itemTitle: "Hele Hall Suss",
-      itemDescription: "Lorem Ipsum Naiste Suss: kitsam liist ja kõrgem konts!",
-      itemPrice: 29,
+      id: "2",
+      name: "Hall Suss",
+      description: "Lorem Ipsum Parim Suss: üks suurus sobib kõigile!",
+      price: 29,
+      size: 36,
+      imageUrl: "http://localhost:8000/images/shoe-01.jpg",
     },
     {
-      id: "e3",
-      itemTitle: "Tume Hall Suss",
-      itemDescription:
-        "Lorem Ipsum Spordisuss: hea pidamine ja parim kiirendus!",
-      itemPrice: 29,
+      id: "3",
+      name: "Hall Suss",
+      description: "Lorem Ipsum Parim Suss: üks suurus sobib kõigile!",
+      price: 29,
+      size: 36,
+      imageUrl: "http://localhost:8000/images/shoe-01.jpg",
+    },
+    {
+      id: "4",
+      name: "Hall Suss",
+      description: "Lorem Ipsum Parim Suss: üks suurus sobib kõigile!",
+      price: 29,
+      size: 36,
+      imageUrl: "http://localhost:8000/images/shoe-01.jpg",
     },
   ];
 
