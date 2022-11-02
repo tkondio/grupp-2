@@ -1,7 +1,8 @@
 import React from "react";
 //import CartItem from "./CartItem";
 import { createUseStyles } from "react-jss";
-import theme from "../common/theme";
+import theme from "../../../common/theme";
+import CartItem from "./CartItem";
 
 const useStyles = createUseStyles({
   row: {
@@ -31,16 +32,9 @@ const Cart: React.FC = (props) => {
     <aside className={`${classes.block} ${classes.col1}`}>
       <h2>Ostukorvi sisu</h2>
       <div>
-        <div>Ostukorv on tühi</div>
+        <CartItem />
       </div>
-      <div className={classes.row}>
-        <div className={classes.col2}></div>
-        <div className={classes.col2}>
-          <button>+</button>
-          <button>-</button>
-        </div>
-        <div className={classes.col2}></div>
-      </div>
+
       <>
         <hr></hr>
         <div className={classes.row}>
