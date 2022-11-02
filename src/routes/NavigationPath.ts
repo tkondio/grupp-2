@@ -1,9 +1,6 @@
-//import CartDemo from "../pages/CartDemo";
-import CartDemo from "../pages/CartDemo";
-import Dashboard from "../pages/Dashboard";
+import Dashboard from "../pages/dashboard/Dashboard";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login/Login";
-import ShoppingCart from "../pages/ShoppingCart";
 
 type NavType = {
   name: string;
@@ -26,16 +23,6 @@ const NavigationPath: NavType[] = [
     name: "Kasutaja",
     path: "/dashboard",
     component: Dashboard,
-  },
-  {
-    name: "Pood ja ostukorv",
-    path: "/shoppingcart",
-    component: ShoppingCart,
-  },
-  {
-    name: "Pood ja ostukorvfds",
-    path: "/cartdemo",
-    component: CartDemo,
   },
 ];
 

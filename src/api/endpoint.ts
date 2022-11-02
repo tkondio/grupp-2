@@ -6,6 +6,10 @@ const ApiPath = {
     currentUser: "/auth/current-user",
     logIn: "/auth/login",
   },
+  Product: {
+    getList: "/products",
+    cartItem: "/cart-items",
+  },
 };
 
 export default ApiPath;

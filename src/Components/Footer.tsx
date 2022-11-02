@@ -15,7 +15,9 @@ const useStyles = createUseStyles({
     color: theme.colors.white,
     fontWeight: "regular",
     paddingLeft: "20px",
+    paddingRight: "20px",
     paddingTop: "25px",
+    textAlign: "right",
   },
 });
 

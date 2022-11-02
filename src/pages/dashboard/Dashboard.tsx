@@ -1,21 +1,22 @@
 import React from "react";
 
 import { createUseStyles } from "react-jss";
-import theme from "../common/theme";
-import Cart from "../components/Cart";
-import Header from "../components/Header";
-import Main from "../components/Main";
+import theme from "../../common/theme";
+import Cart from "./components/Cart";
+import Header from "../../components/Header";
+import Main from "./components/Main";
 //import data from "../components/data";
 
 const useStyles = createUseStyles({
   background: {
-    backgroundPosition: theme.backgroundImage.backgroundPosition,
-    backgroundSize: theme.backgroundImage.backgroundSize,
-    backgroundRepeat: theme.backgroundImage.backgroundRepeat,
-    width: theme.backgroundImage.width,
-    height: theme.backgroundImage.height,
+    //backgroundPosition: theme.backgroundImage.backgroundPosition,
+    //backgroundSize: theme.backgroundImage.backgroundSize,
+    // backgroundRepeat: theme.backgroundImage.backgroundRepeat,
+    // width: theme.backgroundImage.width,
+    // height: theme.backgroundImage.height,
     backgroundAttachment: theme.backgroundImage.backgroundAttachment,
-    backgroundImage: "url(images/grass.jpeg)",
+    //backgroundImage: "url(images/grass.jpeg)",
+    backgroundColor: theme.colors.middleGreen,
   },
   row: {
     display: "flex",
