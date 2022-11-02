@@ -1,4 +1,5 @@
 //import CartDemo from "../pages/CartDemo";
+import CartDemo from "../pages/CartDemo";
 import Dashboard from "../pages/Dashboard";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login/Login";
@@ -31,11 +32,11 @@ const NavigationPath: NavType[] = [
     path: "/shoppingcart",
     component: ShoppingCart,
   },
-  /*{
+  {
     name: "Pood ja ostukorvfds",
     path: "/cartdemo",
     component: CartDemo,
-  },*/
+  },
 ];
 
 export default NavigationPath;
