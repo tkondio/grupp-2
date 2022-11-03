@@ -22,6 +22,10 @@ const useStyles = createUseStyles({
     fontSize: 20,
     fontWeight: 400,
     color: theme.colors.white,
+    fontFamily: "Lato",
+    fontstyle: "normal",
+    letterSpacing: 0.05,
+    lineheight: 24,
   },
   logo: {
     left: 20,
