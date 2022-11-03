@@ -56,6 +56,8 @@ const useStyles = createUseStyles({
     letterSpacing: "-0.02em",
     color: theme.colors.white,
     textDecoration: "none",
+    background: "none",
+    border: "none",
     "&:hover": {
       color: theme.colors.sageGreen,
       cursor: "pointer",
