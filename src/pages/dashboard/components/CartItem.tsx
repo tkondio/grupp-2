@@ -2,7 +2,6 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import theme from "../../../common/theme";
 import { CartItemType } from "../../../models/Cart";
-import { Product } from "../../../models/Product";
 
 const useStyles = createUseStyles({
   row: {

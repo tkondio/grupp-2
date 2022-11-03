@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { createUseStyles } from "react-jss";
 import theme from "../../common/theme";
@@ -7,7 +7,7 @@ import Header from "../../components/Header";
 import ItemCard from "./components/ItemCard";
 import { Product } from "../../models/Product";
 import useEffectAsync from "../../common/useEffectAsync";
-import { CartItemRequestType, CartItemType } from "../../models/Cart";
+import { CartItemType } from "../../models/Cart";
 import {
   addCartItem,
   getProductList,
