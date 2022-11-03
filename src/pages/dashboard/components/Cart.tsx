@@ -2,6 +2,7 @@ import React from "react";
 //import CartItem from "./CartItem";
 import { createUseStyles } from "react-jss";
 import theme from "../../../common/theme";
+import { CartItemType } from "../../../models/Cart";
 import CartItem from "./CartItem";
 
 const useStyles = createUseStyles({
@@ -28,13 +29,18 @@ const useStyles = createUseStyles({
   },
 });
 
-const Cart: React.FC = (props) => {
+type CartProps = {
+  cartList: CartItemType[];
+};
+
+const Cart: React.FC<CartProps> = ({ cartList }) => {
   const classes = useStyles();
   return (
     <aside className={`${classes.block} ${classes.col1}`}>
       <h2>Ostukorvi sisu</h2>
       <div>
-        <CartItem />
+        <CartItem name="" price={22} size={36} imageUrl="" id={1} />
+        <CartItem name="" price={22} size={36} imageUrl="" id={2} />
       </div>
 
       <>

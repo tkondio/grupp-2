@@ -1,10 +1,17 @@
 import React from "react";
+
 import { createUseStyles } from "react-jss";
 import theme from "../../common/theme";
 import Cart from "./components/Cart";
 import Header from "../../components/Header";
-import Main from "./components/Main";
-//import data from "../components/data";
+import ItemCard from "./components/ItemCard";
+import { Product } from "../../models/Product";
+import useEffectAsync from "../../common/useEffectAsync";
+import { CartItemRequestType, CartItemType } from "../../models/Cart";
+import {
+  addCartItem,
+  getProductList,
+} from "../../api/controller/productController";
 
 const useStyles = createUseStyles({
   background: {
@@ -31,21 +38,66 @@ const useStyles = createUseStyles({
     margin: 50,
     borderRadius: 12,
   },
+  block2: {
+    backgroundColor: theme.colors.lightGrey,
+    padding: 20,
+    margin: 20,
+    marginTop: 170,
+    borderRadius: 12,
+  },
+  gridItem: {
+    display: "grid",
+    gridTemplateColumns: "auto auto",
+    gap: 10,
+  },
 });
 
-const CartDemo = () => {
+const Dashboard = () => {
+  const [productList, setProductList] = useState<Product[] | null>(null);
+  const [cartItemList, setCartItemList] = useState<CartItemType[]>([]);
   const classes = useStyles();
+
+  useEffectAsync(async () => {
+    const response = await getProductList();
+    if (response.isSuccess === true) {
+      setProductList(response.body);
+    }
+  }, []);
+
+  const addToCart = async (product: Product) => {
+    const cartItem = {
+      name: product.name,
+      price: product.price,
+      size: product.size,
+      imageUrl: product.imageUrl,
+    };
+
+    const response = await addCartItem(cartItem);
+    console.log(response);
+    if (response.isSuccess === true) {
+      setCartItemList([...cartItemList, response.body]);
+    }
+  };
 
   return (
     <div className={classes.background}>
       <Header />
-      
+
       <div className={classes.row}>
-        <Main />
-        <Cart />
+        <main className={`${classes.block2} ${classes.col2}`}>
+          <h2>Tooted</h2>
+          <div>
+            <div className={classes.gridItem}>
+              {productList?.map((el) => (
+                <ItemCard product={el} addToCart={addToCart} />
+              ))}
+            </div>
+          </div>
+        </main>
+        <Cart cartList={cartItemList} />
       </div>
     </div>
   );
 };
 
-export default CartDemo;
+export default Dashboard;
