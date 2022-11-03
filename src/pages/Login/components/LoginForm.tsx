@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import theme from "../../../common/theme";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../../api/controller/authController";
 import { setAuthToken } from "../../../helpers/authHelpers";
 
@@ -56,6 +56,8 @@ const useStyles = createUseStyles({
     letterSpacing: "-0.02em",
     color: theme.colors.white,
     textDecoration: "none",
+    background: "none",
+    border: "none",
     "&:hover": {
       color: theme.colors.sageGreen,
       cursor: "pointer",
@@ -106,9 +108,10 @@ export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
       if (accessToken) {
         setAuthToken(accessToken);
         navigate("/dashboard");
-      };
-    }};
-  
+      }
+    }
+  };
+
   return (
     <div className={classes.container}>
       <form className={classes.loginform} onSubmit={handleSubmit}>

@@ -9,10 +9,10 @@ import { Product } from "../../../models/Product";
 
 type ItemCardProps = {
   product: Product;
+  addToCart: (product: Product) => void;
 };
 
-
-const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
+const ItemCard: React.FC<ItemCardProps> = ({ product, addToCart }) => {
   return (
     <Card sx={{ maxWidth: 300 }}>
       <CardMedia
@@ -31,7 +31,9 @@ const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button sx={{backgroundColor:'#BFCCBA', color:'black'}} size="small">Osta</Button>
+        <Button sx={{backgroundColor:'#BFCCBA', color:'black'}} size="small" onClick={() => addToCart(product)}>
+          Lisa ostukorvi!
+        </Button>
       </CardActions>
     </Card>
   );

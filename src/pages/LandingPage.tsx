@@ -15,7 +15,7 @@ const useStyles = createUseStyles({
     left: "178",
     top: "425",
     position: "relative",
-    //fontFamily: "Montserrat",
+    fontFamily: "Montserrat",
     fontStyle: "normal",
     fontWeight: 400,
     //lineHeight: 67,
@@ -37,6 +37,7 @@ const useStyles = createUseStyles({
     textDecoration: "none",
     color: theme.colors.white,
     fontSize: 40,
+    fontFamily: "Montserrat",
     transition: "0.3",
     "&:not(:first-child)": {
       borderColor: theme.colors.lightGreen,
