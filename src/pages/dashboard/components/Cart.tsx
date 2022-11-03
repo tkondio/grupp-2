@@ -1,8 +1,10 @@
 import React from "react";
 //import CartItem from "./CartItem";
 import { createUseStyles } from "react-jss";
+import { addCartItem } from "../../../api/controller/productController";
 import theme from "../../../common/theme";
 import { CartItemType } from "../../../models/Cart";
+import { Product } from "../../../models/Product";
 import CartItem from "./CartItem";
 
 const useStyles = createUseStyles({
@@ -25,22 +27,29 @@ const useStyles = createUseStyles({
     marginTop: 170,
     marginBottom: 80,
     borderRadius: 12,
-    cursor: 'progress',
+    cursor: "progress",
   },
 });
 
 type CartProps = {
-  cartList: CartItemType[];
+  productList: CartItemType[];
+  addToCart: (product: Product) => void;
 };
 
-const Cart: React.FC<CartProps> = ({ cartList }) => {
+const Cart: React.FC<CartProps> = ({ productList }) => {
   const classes = useStyles();
+
   return (
     <aside className={`${classes.block} ${classes.col1}`}>
       <h2>Ostukorvi sisu</h2>
       <div>
-        <CartItem name="" price={22} size={36} imageUrl="" id={1} />
-        <CartItem name="" price={22} size={36} imageUrl="" id={2} />
+        {/*         <CartItem name="" price={22} size={36} imageUrl="" id={1} />
+        <CartItem name="" price={22} size={36} imageUrl="" id={2} /> */}
+        <div>
+          {productList?.map((el) => (
+            <CartItem product={el} addToCart={addCartItem} />
+          ))}
+        </div>
       </div>
 
       <>

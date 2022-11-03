@@ -94,7 +94,7 @@ const Dashboard = () => {
             </div>
           </div>
         </main>
-        <Cart cartList={cartItemList} />
+        <Cart productList={cartItemList} addToCart={addToCart} />
       </div>
     </div>
   );

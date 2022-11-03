@@ -2,6 +2,7 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import theme from "../../../common/theme";
 import { CartItemType } from "../../../models/Cart";
+import { Product } from "../../../models/Product";
 
 const useStyles = createUseStyles({
   row: {
@@ -26,18 +27,26 @@ const useStyles = createUseStyles({
     width: 100,
   },
 });
+type CartItemProps = {
+  product: CartItemType;
+  addToCart: (product: Product) => void;
+};
 
-const CartItem: React.FC<CartItemType> = (props) => {
+const CartItem: React.FC<CartItemProps> = ({ product, addToCart }) => {
   const classes = useStyles();
   return (
     <div className={classes.block}>
       <div className={classes.row}>
         <div className={`${classes.col2} ${classes.img}`}>
-          <img src={props.imageUrl} alt="Toote pilt" />
+          <img
+            className={classes.img}
+            src={product.imageUrl}
+            alt="Toote pilt"
+          />
         </div>
-        <div className={classes.col2}>{props.name}</div>
-        <div className={classes.col2}>{`Suurus: ${props.size}`}</div>
-        <div className={classes.col2}>{`Hind: ${props.price}€`}</div>
+        <div className={classes.col2}>{product.name}</div>
+        <div className={classes.col2}>{`Suurus: ${product.size}`}</div>
+        <div className={classes.col2}>{`Hind: ${product.price}€`}</div>
         <div className={classes.col2}>
           <button>+</button>
           <button>-</button>
