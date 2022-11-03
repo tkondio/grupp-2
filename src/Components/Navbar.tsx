@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createUseStyles } from 'react-jss';
 import theme from '../common/theme';
 import { removeAuthToken } from '../helpers/authHelpers';
@@ -18,6 +18,7 @@ const useStyles = createUseStyles({
     alignItems: 'center',
     padding: '0px 60px 0px 0px',
     // backgroundColor: "transparent",
+    fontFamily: theme.font.fontFamily,
   },
   rightSide: {
     display: 'flex',
@@ -28,7 +29,7 @@ const useStyles = createUseStyles({
     fontSize: 20,
     fontWeight: 400,
     color: theme.colors.white,
-    fontFamily: "Lato",
+    fontFamily: theme.font.fontFamily,
     fontstyle: "normal",
     letterSpacing: 0.05,
     lineheight: 24,
@@ -62,14 +63,13 @@ const useStyles = createUseStyles({
   },
 });
 
-const handleLogout = () => {
-  removeAuthToken();
-  window.location.reload();
-};
-
 const Navbar: React.FC = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    removeAuthToken();
+    navigate("/");
+  };
   const classes = useStyles();
-
   return (
     <div className={classes.container}>
       <Link to="/">
@@ -85,23 +85,18 @@ const Navbar: React.FC = () => {
       <div>
       <div className={classes.rightSide}>
       <Link to="/dashboard">
-          
           <img
             src="images/basketicon.png"
             alt="Account"
-
             className={classes.img}
-            
           />
       </Link>
         <Link to="/login">
-          
             <img
               src="images/accounticon.png"
               alt="Account"
               className={classes.img}
             />
-          
         </Link>
         <div>
           <img

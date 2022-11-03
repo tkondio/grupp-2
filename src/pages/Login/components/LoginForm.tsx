@@ -66,7 +66,7 @@ const useStyles = createUseStyles({
   letsRegister: {
     width: "446px",
     height: "43px",
-    fontFamily: "Montserrat",
+    fontFamily: theme.font.fontFamily,
     fontStyle: "bold",
     fontWeight: "450",
     fontSize: "24px",

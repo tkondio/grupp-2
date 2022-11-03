@@ -15,14 +15,15 @@ import {
 
 const useStyles = createUseStyles({
   background: {
-    //backgroundPosition: theme.backgroundImage.backgroundPosition,
-    //backgroundSize: theme.backgroundImage.backgroundSize,
-    // backgroundRepeat: theme.backgroundImage.backgroundRepeat,
-    // width: theme.backgroundImage.width,
-    // height: theme.backgroundImage.height,
-    //backgroundAttachment: theme.backgroundImage.backgroundAttachment,
     backgroundImage: "url(images/grass.jpeg)",
     backgroundColor: theme.colors.middleGreen,
+    backgroundPosition: theme.backgroundImage.backgroundPosition,
+    backgroundSize: theme.backgroundImage.backgroundSize,
+    backgroundRepeat: theme.backgroundImage.backgroundRepeat,
+    width: theme.backgroundImage.width,
+    height: "130vh",
+    backgroundAttachment: theme.backgroundImage.backgroundAttachment,
+    fontFamily: theme.font.fontFamily,
   },
   row: {
     display: "flex",

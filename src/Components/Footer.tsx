@@ -18,7 +18,7 @@ const useStyles = createUseStyles({
     paddingRight: "20px",
     paddingTop: "25px",
     textAlign: "right",
-    fontFamily: "Montserrat",
+    fontFamily: theme.font.fontFamily,
   },
 });
 

@@ -37,6 +37,7 @@ const CartItem: React.FC<CartItemProps> = ({ product, addToCart }) => {
   return (
     <div className={classes.block}>
       <div className={classes.row}>
+        
         <div className={`${classes.col2} ${classes.img}`}>
           <img
             className={classes.img}
