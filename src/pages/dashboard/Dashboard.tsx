@@ -43,6 +43,7 @@ const useStyles = createUseStyles({
     padding: 20,
     margin: 20,
     marginTop: 170,
+    marginBottom: 80,
     borderRadius: 12,
   },
   gridItem: {
@@ -94,7 +95,7 @@ const Dashboard = () => {
             </div>
           </div>
         </main>
-        <Cart cartList={cartItemList} />
+        <Cart productList={cartItemList} addToCart={addToCart} />
       </div>
     </div>
   );
