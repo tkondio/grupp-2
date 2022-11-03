@@ -41,7 +41,6 @@ const useStyles = createUseStyles({
     "&:not(:first-child)": {
       borderColor: theme.colors.lightGreen,
       borderTop: "2px solid",
-
       width: 180,
     },
     "&:hover": {

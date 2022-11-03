@@ -31,6 +31,7 @@ const CartItem = () => {
   return (
     <div className={classes.block}>
       <div className={classes.row}>
+        
         <div className={`${classes.col2} ${classes.img}`}>
           {" "}
           <img></img>{" "}

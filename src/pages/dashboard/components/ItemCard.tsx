@@ -11,6 +11,7 @@ type ItemCardProps = {
   product: Product;
 };
 
+
 const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
   return (
     <Card sx={{ maxWidth: 300 }}>
@@ -30,7 +31,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Osta!</Button>
+        <Button sx={{backgroundColor:'#BFCCBA', color:'black'}} size="small">Osta</Button>
       </CardActions>
     </Card>
   );
