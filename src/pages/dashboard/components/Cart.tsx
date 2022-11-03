@@ -23,6 +23,7 @@ const useStyles = createUseStyles({
     margin: 20,
     marginTop: 170,
     borderRadius: 12,
+    cursor: 'progress',
   },
 });
 

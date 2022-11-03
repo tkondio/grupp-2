@@ -1,22 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { createUseStyles } from "react-jss";
-import theme from "../common/theme";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { createUseStyles } from 'react-jss';
+import theme from '../common/theme';
+import { removeAuthToken } from '../helpers/authHelpers';
 
 const useStyles = createUseStyles({
   container: {
     background: theme.colors.gradient,
-    position: "fixed",
-    width: "100%",
-    height: "80px",
-    top: "0",
+    position: 'fixed',
+    width: '100%',
+    height: '80px',
+    top: '0',
     color: theme.colors.white,
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "0px 60px 0px 0px",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '0px 60px 0px 0px',
     // backgroundColor: "transparent",
+  },
+  rightSide: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 20,
@@ -29,25 +35,33 @@ const useStyles = createUseStyles({
     width: 70,
   },
   icons: {
-    listStyleType: "none",
+    listStyleType: 'none',
     margin: 0,
     padding: 0,
-    overflow: "hidden",
-    display: "inline-flex",
-    float: "left",
+    overflow: 'hidden',
+    display: 'inline-flex',
+    float: 'left',
   },
   img: {
-    color: theme.colors.white,
-    textAlign: "center",
-    padding: 16,
-    textDecoration: "none",
+    textAlign: 'center',
+    padding: 10,
+    textDecoration: 'none',
     opacity: 0.6,
     transition: 0.3,
-    "&:hover": {
+    '&:hover': {
       opacity: 1,
     },
   },
+  logoutButton: {
+    cursor: 'pointer',
+    height: 22,
+  },
 });
+
+const handleLogout = () => {
+  removeAuthToken();
+  window.location.reload();
+};
 
 const Navbar: React.FC = () => {
   const classes = useStyles();
@@ -56,20 +70,43 @@ const Navbar: React.FC = () => {
     <div className={classes.container}>
       <Link to="/">
         <div>
-          <img src="images/SINUSUSS.png" alt="LOGO" className={classes.logo} />
-        </div>
-      </Link>
-      <div className={classes.title}>Sussikaubamaja SINU SUSS</div>
-
-      <Link to="/login">
-        <div>
           <img
-            src="images/accounticon.png"
-            alt="Account"
-            className={classes.img}
+            src="images/SINUSUSS.png"
+            alt="LOGO"
+            className={classes.logo}
           />
         </div>
       </Link>
+      <div className={classes.title}>Sussikaubamaja SINU SUSS</div>
+      <div>
+      <div className={classes.rightSide}>
+      <Link to="/dashboard">
+          
+          <img
+            src="images/basketicon.png"
+            alt="Account"
+            className={classes.img}
+          />
+      </Link>
+        <Link to="/login">
+          
+            <img
+              src="images/accounticon.png"
+              alt="Account"
+              className={classes.img}
+            />
+          
+        </Link>
+        <div>
+          <img
+            onClick={handleLogout}
+            src="images/logout.png"
+            alt="logout"
+            className={`${classes.logoutButton} ${classes.img}`}
+          />
+        </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React from "react";
-
 import { createUseStyles } from "react-jss";
 import theme from "../../common/theme";
 import Cart from "./components/Cart";
@@ -40,6 +39,7 @@ const CartDemo = () => {
   return (
     <div className={classes.background}>
       <Header />
+      
       <div className={classes.row}>
         <Main />
         <Cart />
