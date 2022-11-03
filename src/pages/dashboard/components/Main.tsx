@@ -16,6 +16,7 @@ const useStyles = createUseStyles({
     padding: 20,
     margin: 20,
     marginTop: 170,
+    marginBottom: 80,
     borderRadius: 12,
   },
   gridItem: {

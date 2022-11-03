@@ -14,8 +14,8 @@ const useStyles = createUseStyles({
     // backgroundRepeat: theme.backgroundImage.backgroundRepeat,
     // width: theme.backgroundImage.width,
     // height: theme.backgroundImage.height,
-    backgroundAttachment: theme.backgroundImage.backgroundAttachment,
-    //backgroundImage: "url(images/grass.jpeg)",
+    //backgroundAttachment: theme.backgroundImage.backgroundAttachment,
+    backgroundImage: "url(images/grass.jpeg)",
     backgroundColor: theme.colors.middleGreen,
   },
   row: {
