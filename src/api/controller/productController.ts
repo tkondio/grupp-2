@@ -1,4 +1,5 @@
 import { getAuthorizationHeader } from "../../helpers/authHelpers";
+import { CartItemRequestType } from "../../models/Cart";
 import ApiPath from "../endpoint";
 import getPath from "../utils";
 
@@ -23,13 +24,13 @@ export async function getProductList(): Promise<any> {
   };
 }
 
-export async function addCartItem(cartItem: any): Promise<any> {
+export async function addCartItem(cartItem: CartItemRequestType): Promise<any> {
   const response = await fetch(getPath(ApiPath.Product.cartItem), {
     method: "POST",
     body: JSON.stringify(cartItem),
     headers: {
       "Content-Type": "application/json",
-      // "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6I…zM0fQ.nfacO9S7U2VF-v-gAzYP0RYaE8s2i1lvIAq6SEot6zo"
+      ...getAuthorizationHeader(),
     },
   });
   if (response.status === 201) {
