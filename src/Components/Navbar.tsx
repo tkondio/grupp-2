@@ -85,6 +85,7 @@ const Navbar: React.FC = () => {
           <img
             src="images/basketicon.png"
             alt="Account"
+            
             className={classes.img}
           />
       </Link>
