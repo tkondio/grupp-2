@@ -20,11 +20,11 @@ const useStyles = createUseStyles({
   },
   title: {
     fontSize: 20,
-    fontWeight: 400,
+    fontWeight: 300,
     color: theme.colors.white,
     fontFamily: "Lato",
     fontstyle: "normal",
-    letterSpacing: 0.05,
+    letterSpacing: 3,
     lineheight: 24,
   },
   logo: {
@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
           <img src="images/SINUSUSS.png" alt="LOGO" className={classes.logo} />
         </div>
       </Link>
-      <div className={classes.title}>Sussikaubamaja SINU SUSS</div>
+      <div className={classes.title}>Sussikaubamaja <b>SINU SUSS</b></div>
 
       <Link to="/login">
         <div>
