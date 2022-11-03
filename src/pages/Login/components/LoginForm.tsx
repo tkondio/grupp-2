@@ -106,10 +106,9 @@ export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
       if (accessToken) {
         setAuthToken(accessToken);
         navigate("/dashboard");
-      }
-    }
-    // console.log(email, password, firstName, lastName);
-  };
+      };
+    }};
+  
   return (
     <div className={classes.container}>
       <form className={classes.loginform} onSubmit={handleSubmit}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { createUseStyles } from "react-jss";
 import theme from "../../common/theme";
@@ -20,8 +20,8 @@ const useStyles = createUseStyles({
     // backgroundRepeat: theme.backgroundImage.backgroundRepeat,
     // width: theme.backgroundImage.width,
     // height: theme.backgroundImage.height,
-    backgroundAttachment: theme.backgroundImage.backgroundAttachment,
-    //backgroundImage: "url(images/grass.jpeg)",
+    //backgroundAttachment: theme.backgroundImage.backgroundAttachment,
+    backgroundImage: "url(images/grass.jpeg)",
     backgroundColor: theme.colors.middleGreen,
   },
   row: {
@@ -82,6 +82,7 @@ const Dashboard = () => {
   return (
     <div className={classes.background}>
       <Header />
+
       <div className={classes.row}>
         <main className={`${classes.block2} ${classes.col2}`}>
           <h2>Tooted</h2>
