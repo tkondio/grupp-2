@@ -43,6 +43,7 @@ const useStyles = createUseStyles({
     padding: 20,
     margin: 20,
     marginTop: 170,
+    marginBottom: 80,
     borderRadius: 12,
   },
   gridItem: {
@@ -73,7 +74,6 @@ const Dashboard = () => {
     };
 
     const response = await addCartItem(cartItem);
-    console.log(response);
     if (response.isSuccess === true) {
       setCartItemList([...cartItemList, response.body]);
     }
