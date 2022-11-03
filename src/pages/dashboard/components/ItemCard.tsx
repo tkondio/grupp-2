@@ -32,7 +32,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ product, addToCart }) => {
       </CardContent>
       <CardActions>
         <Button size="small" onClick={() => addToCart(product)}>
-          Osta!
+          Lisa ostukorvi!
         </Button>
       </CardActions>
     </Card>
