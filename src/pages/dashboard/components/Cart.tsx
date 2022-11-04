@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 //import CartItem from "./CartItem";
 import { createUseStyles } from "react-jss";
-import { addCartItem } from "../../../api/controller/productController";
+import {
+  addCartItem,
+  deleteCartItem,
+  getCartItems,
+} from "../../../api/controller/productController";
 import theme from "../../../common/theme";
+import useEffectAsync from "../../../common/useEffectAsync";
 import CartHelpers from "../../../helpers/cartHelpers";
 import { CartItemType } from "../../../models/Cart";
 import { Product } from "../../../models/Product";
@@ -32,13 +37,19 @@ const useStyles = createUseStyles({
 });
 
 type CartProps = {
+  deleteItem: (productList: CartItemType) => Promise<void>;
   productList: CartItemType[];
   addToCart: (product: Product) => void;
   onAdd: (product: CartItemType) => void;
   onRemove: (product: CartItemType) => void;
 };
 
-const Cart: React.FC<CartProps> = ({ productList, onAdd, onRemove }) => {
+const Cart: React.FC<CartProps> = ({
+  productList,
+  onAdd,
+  onRemove,
+  deleteItem,
+}) => {
   const classes = useStyles();
   const cartTotal = CartHelpers.calculateCartTotal(productList);
   const shippingPrice = cartTotal > 50 ? 0 : 5;
@@ -52,7 +63,12 @@ const Cart: React.FC<CartProps> = ({ productList, onAdd, onRemove }) => {
         {productList.length === 0 && <p>Ostukorv on tühi.</p>}
         <div>
           {productList?.map((el) => (
-            <CartItem product={el} onAdd={onAdd} onRemove={onRemove} />
+            <CartItem
+              product={el}
+              onAdd={onAdd}
+              onRemove={onRemove}
+              deleteItem={deleteItem}
+            />
           ))}
         </div>
       </div>

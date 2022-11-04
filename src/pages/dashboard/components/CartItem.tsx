@@ -31,10 +31,20 @@ type CartItemProps = {
   product: CartItemType;
   onAdd: (product: CartItemType) => void;
   onRemove: (product: CartItemType) => void;
+  deleteItem: (productList: CartItemType) => Promise<void>;
 };
 
-const CartItem: React.FC<CartItemProps> = ({ product, onAdd, onRemove }) => {
+const CartItem: React.FC<CartItemProps> = ({
+  product,
+  onAdd,
+  onRemove,
+  deleteItem,
+}) => {
   const classes = useStyles();
+  const handleDelete = async () => {
+    await deleteItem(product);
+  };
+
   return (
     <div className={classes.block}>
       <div className={classes.row}>
@@ -52,6 +62,15 @@ const CartItem: React.FC<CartItemProps> = ({ product, onAdd, onRemove }) => {
         <div className={classes.col2}>
           <button onClick={() => onAdd(product)}>+</button>
           <button onClick={() => onRemove(product)}>-</button>
+        </div>
+        <div className={classes.col2}>
+          <button
+            onClick={() => {
+              handleDelete();
+            }}
+          >
+            KUSTUTA
+          </button>{" "}
         </div>
       </div>
     </div>

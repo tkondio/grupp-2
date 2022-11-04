@@ -10,6 +10,8 @@ import useEffectAsync from "../../common/useEffectAsync";
 import { CartItemType } from "../../models/Cart";
 import {
   addCartItem,
+  deleteCartItem,
+  getCartItems,
   getProductList,
 } from "../../api/controller/productController";
 
@@ -103,6 +105,13 @@ const Dashboard = () => {
     }
   }, []);
 
+  useEffectAsync(async () => {
+    const response = await getCartItems();
+    if (response.isSuccess === true) {
+      setCartItemList(response.body);
+    }
+  }, []);
+
   const addToCart = async (product: Product) => {
     const cartItem = {
       name: product.name,
@@ -118,6 +127,18 @@ const Dashboard = () => {
   };
 
   console.log("cartItemList", cartItemList);
+
+  const deleteItem = async (product: CartItemType) => {
+    const response = await deleteCartItem(product);
+    if (response.isSuccess === true) {
+      console.log("success!");
+      const filterItems = cartItemList.filter((el) => product.id !== el.id);
+      console.log("again success", filterItems);
+      setCartItemList(filterItems);
+    } else {
+      alert("ebaõnn");
+    }
+  };
 
   return (
     <div className={classes.container}>
@@ -135,6 +156,7 @@ const Dashboard = () => {
             </div>
           </main>
           <Cart
+            deleteItem={deleteItem}
             productList={cartItemList}
             addToCart={addToCart}
             onAdd={onAdd}

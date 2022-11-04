@@ -1,5 +1,5 @@
 export type CartItemType = {
-  id: number;
+  id?: number;
   name: string;
   price: number;
   size: number;
@@ -8,6 +8,7 @@ export type CartItemType = {
 };
 
 export type CartItemRequestType = {
+  id?: number;
   name: string;
   price: number;
   size: number;
