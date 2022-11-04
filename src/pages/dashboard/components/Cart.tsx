@@ -34,11 +34,16 @@ const useStyles = createUseStyles({
 type CartProps = {
   productList: CartItemType[];
   addToCart: (product: Product) => void;
+  onAdd: (product: CartItemType) => void;
+  onRemove: (product: CartItemType) => void;
 };
 
-const Cart: React.FC<CartProps> = ({ productList }) => {
+const Cart: React.FC<CartProps> = ({ productList, onAdd, onRemove }) => {
   const classes = useStyles();
   const cartTotal = CartHelpers.calculateCartTotal(productList);
+  const shippingPrice = cartTotal > 50 ? 0 : 5;
+  const taxPrice = cartTotal * 0.2;
+  const totalPrice = cartTotal + taxPrice + shippingPrice;
 
   return (
     <aside className={`${classes.block} ${classes.col1}`}>
@@ -47,7 +52,7 @@ const Cart: React.FC<CartProps> = ({ productList }) => {
         {productList.length === 0 && <p>Ostukorv on tühi.</p>}
         <div>
           {productList?.map((el) => (
-            <CartItem product={el} addToCart={addCartItem} />
+            <CartItem product={el} onAdd={onAdd} onRemove={onRemove} />
           ))}
         </div>
       </div>
@@ -55,23 +60,23 @@ const Cart: React.FC<CartProps> = ({ productList }) => {
       <>
         <hr></hr>
         <div className={classes.row}>
-          <div className={classes.col2}></div>
-          <div className={classes.col1}>€</div>
+          <div className={classes.col2}>Summa</div>
+          <div className={classes.col1}>€{cartTotal.toFixed(2)}</div>
         </div>
         <div className={classes.row}>
           <div className={classes.col2}>Käibemaks</div>
-          <div className={classes.col1}>€ </div>
+          <div className={classes.col1}>€{taxPrice.toFixed(2)}</div>
         </div>
         <div className={classes.row}>
           <div className={classes.col2}>Transport</div>
-          <div className={classes.col1}>€</div>
+          <div className={classes.col1}>€{shippingPrice.toFixed(2)}</div>
         </div>
         <div className={classes.row}>
           <div className={classes.col2}>
             <strong>KOKKU</strong>
           </div>
           <div className={classes.col1}>
-            {productList.length > 0 && <strong>{`${cartTotal} €`} </strong>}
+            {productList.length > 0 && <strong>{`${totalPrice} €`} </strong>}
           </div>
         </div>
         <hr />

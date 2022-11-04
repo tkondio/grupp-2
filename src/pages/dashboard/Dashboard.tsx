@@ -14,16 +14,16 @@ import {
 } from "../../api/controller/productController";
 
 const useStyles = createUseStyles({
-  container:{
-    height: '100vh'
+  container: {
+    height: "100vh",
   },
   background: {
     backgroundImage: "url(images/grass.jpeg)",
     backgroundSize: theme.backgroundImage.backgroundSize,
-    backgroundRepeat: 'repeat',
+    backgroundRepeat: "repeat",
     height: "100%",
     fontFamily: theme.font.fontFamily,
-    overflowY:'auto',
+    overflowY: "auto",
   },
   row: {
     display: "flex",
@@ -54,10 +54,47 @@ const useStyles = createUseStyles({
   },
 });
 
+type DashboardProps = {
+  productList: CartItemType[];
+  onAdd: (product: Product) => void;
+  onRemove: (product: Product) => void;
+};
+
 const Dashboard = () => {
   const [productList, setProductList] = useState<Product[] | null>(null);
   const [cartItemList, setCartItemList] = useState<CartItemType[]>([]);
   const classes = useStyles();
+
+  const onAdd = (product: CartItemType) => {
+    const exist = cartItemList.find((x) => x.id === product.id);
+    if (exist) {
+      setCartItemList(
+        cartItemList.map((x) =>
+          x.id === product.id
+            ? { ...exist, qty: exist.qty && exist.qty + 1 }
+            : x
+        )
+      );
+    } else {
+      setCartItemList([...cartItemList, { ...product, qty: 1 }]);
+    }
+  };
+
+  const onRemove = (product: CartItemType) => {
+    const exist = cartItemList.find((x) => x.id === product.id);
+    if (exist?.qty && exist.qty === 1) {
+      setCartItemList(cartItemList.filter((x) => x.id !== product.id));
+    } else {
+      setCartItemList(
+        cartItemList.map((x) => {
+          if (product.id === x.id && exist?.qty) {
+            return { ...x, qty: exist.qty - 1 };
+          }
+          return x;
+        })
+      );
+    }
+  };
 
   useEffectAsync(async () => {
     const response = await getProductList();
@@ -76,28 +113,35 @@ const Dashboard = () => {
 
     const response = await addCartItem(cartItem);
     if (response.isSuccess === true) {
-      setCartItemList([...cartItemList, response.body]);
+      setCartItemList([...cartItemList, { ...response.body, qty: 1 }]);
     }
   };
+
+  console.log("cartItemList", cartItemList);
 
   return (
     <div className={classes.container}>
       <div className={classes.background}>
-      <Header />
-      <div className={classes.row}>
-        <main className={`${classes.block2} ${classes.col2}`}>
-          <h2>Tooted</h2>
-          <div>
-            <div className={classes.gridItem}>
-              {productList?.map((el) => (
-                <ItemCard product={el} addToCart={addToCart} />
-              ))}
+        <Header />
+        <div className={classes.row}>
+          <main className={`${classes.block2} ${classes.col2}`}>
+            <h2>Tooted</h2>
+            <div>
+              <div className={classes.gridItem}>
+                {productList?.map((el) => (
+                  <ItemCard product={el} addToCart={addToCart} />
+                ))}
+              </div>
             </div>
-          </div>
-        </main>
-        <Cart productList={cartItemList} addToCart={addToCart} />
+          </main>
+          <Cart
+            productList={cartItemList}
+            addToCart={addToCart}
+            onAdd={onAdd}
+            onRemove={onRemove}
+          />
+        </div>
       </div>
-    </div>
     </div>
   );
 };
