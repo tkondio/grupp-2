@@ -44,8 +44,8 @@ const useStyles = createUseStyles({
     color: theme.colors.white,
     "&:hover": {
       color: "#6C7E65",
-  }
-  }
+    },
+  },
 });
 type CartItemProps = {
   product: CartItemType;
@@ -55,7 +55,6 @@ type CartItemProps = {
 };
 
 const CartItem: React.FC<CartItemProps> = ({ product, deleteItem }) => {
-
   const classes = useStyles();
   const handleDelete = async () => {
     await deleteItem(product);
@@ -76,16 +75,13 @@ const CartItem: React.FC<CartItemProps> = ({ product, deleteItem }) => {
         <div className={classes.col2}>{`Suurus: ${product.size}`}</div>
         <div className={classes.col2}>{`Hind: ${product.price}€`}</div>
         <div className={classes.col2}>
-
-          <button>+</button>
           <button
             onClick={() => {
               handleDelete();
             }}
           >
-            -
+            Kustuta
           </button>
-
         </div>
       </div>
     </div>

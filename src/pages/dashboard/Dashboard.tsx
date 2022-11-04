@@ -133,7 +133,6 @@ const Dashboard = () => {
     }
   };
 
-
   const deleteItem = async (product: CartItemType) => {
     const response = await deleteCartItem(product);
     if (response.isSuccess === true) {
@@ -145,12 +144,6 @@ const Dashboard = () => {
       alert("ebaõnn");
     }
   };
-
-  return (
-    <div className={classes.background}>
-      <Header />
-
-
 
   return (
     <div className={classes.container}>
@@ -166,15 +159,13 @@ const Dashboard = () => {
                 ))}
               </div>
             </div>
-
-          </div>
-        </main>
-        <Cart
-          deleteItem={deleteItem}
-          productList={cartItemList}
-          addToCart={addToCart}
-        />
-
+          </main>
+          <Cart
+            deleteItem={deleteItem}
+            productList={cartItemList}
+            addToCart={addToCart}
+          />
+        </div>
       </div>
     </div>
   );
