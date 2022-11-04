@@ -49,6 +49,8 @@ const useStyles = createUseStyles({
     textAlign: 'center',
     padding: 10,
     textDecoration: 'none',
+    width: 25,
+    height: 25,
     opacity: 0.6,
     transition: 0.3,
     '&:hover': {
@@ -57,7 +59,7 @@ const useStyles = createUseStyles({
   },
   logoutButton: {
     cursor: 'pointer',
-    height: 22,
+    //height: 22,
   },
 });
 
@@ -84,14 +86,14 @@ const Navbar: React.FC = () => {
       <div className={classes.rightSide}>
       <Link to="/dashboard">
           <img
-            src="images/basketicon.png"
+            src="images/shoppingCart.png"
             alt="Account"
             className={classes.img}
           />
       </Link>
         <Link to="/login">
             <img
-              src="images/accounticon.png"
+              src="images/user.png"
               alt="Account"
               className={classes.img}
             />
@@ -99,7 +101,7 @@ const Navbar: React.FC = () => {
         <div>
           <img
             onClick={handleLogout}
-            src="images/logout.png"
+            src="images/log-out.png"
             alt="logout"
             className={`${classes.logoutButton} ${classes.img}`}
           />

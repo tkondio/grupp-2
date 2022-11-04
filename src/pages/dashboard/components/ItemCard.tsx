@@ -31,7 +31,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ product, addToCart }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button sx={{backgroundColor:'#BFCCBA', color:'black'}} size="small" onClick={() => addToCart(product)}>
+        <Button sx={{backgroundColor:'#BFCCBA', color:'black', fontFamily: 'Montserrat'}} size="small" onClick={() => addToCart(product)}>
           Lisa ostukorvi!
         </Button>
       </CardActions>
