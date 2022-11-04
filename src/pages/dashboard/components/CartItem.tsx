@@ -1,5 +1,7 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { deleteCartItem } from "../../../api/controller/productController";
 import theme from "../../../common/theme";
 import { CartItemType } from "../../../models/Cart";
 import { Product } from "../../../models/Product";
@@ -29,15 +31,19 @@ const useStyles = createUseStyles({
 });
 type CartItemProps = {
   product: CartItemType;
-  addToCart: (product: Product) => void;
+  /*   addToCart: (product: Product) => void; */
+  deleteItem: (productList: CartItemType) => Promise<void>;
 };
 
-const CartItem: React.FC<CartItemProps> = ({ product, addToCart }) => {
+const CartItem: React.FC<CartItemProps> = ({ product, deleteItem }) => {
   const classes = useStyles();
+  const handleDelete = async () => {
+    await deleteItem(product);
+  };
+
   return (
     <div className={classes.block}>
       <div className={classes.row}>
-        
         <div className={`${classes.col2} ${classes.img}`}>
           <img
             className={classes.img}
@@ -50,7 +56,13 @@ const CartItem: React.FC<CartItemProps> = ({ product, addToCart }) => {
         <div className={classes.col2}>{`Hind: ${product.price}€`}</div>
         <div className={classes.col2}>
           <button>+</button>
-          <button>-</button>
+          <button
+            onClick={() => {
+              handleDelete();
+            }}
+          >
+            -
+          </button>
         </div>
       </div>
     </div>

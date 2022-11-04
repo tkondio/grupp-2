@@ -10,7 +10,9 @@ import useEffectAsync from "../../common/useEffectAsync";
 import { CartItemType } from "../../models/Cart";
 import {
   addCartItem,
+  deleteCartItem,
   getProductList,
+  getCartItems,
 } from "../../api/controller/productController";
 
 const useStyles = createUseStyles({
@@ -66,6 +68,20 @@ const Dashboard = () => {
     }
   }, []);
 
+  useEffectAsync(async () => {
+    const response = await getCartItems();
+    if (response.isSuccess === true) {
+      setCartItemList(response.body);
+    }
+  }, []);
+
+  useEffectAsync(async () => {
+    const response = await getCartItems();
+    if (response.isSuccess === true) {
+      setCartItemList(response.body);
+    }
+  }, []);
+
   const addToCart = async (product: Product) => {
     const cartItem = {
       name: product.name,
@@ -77,6 +93,18 @@ const Dashboard = () => {
     const response = await addCartItem(cartItem);
     if (response.isSuccess === true) {
       setCartItemList([...cartItemList, response.body]);
+    }
+  };
+
+  const deleteItem = async (product: CartItemType) => {
+    const response = await deleteCartItem(product);
+    if (response.isSuccess === true) {
+      console.log("success!");
+      const filterItems = cartItemList.filter((el) => product.id !== el.id);
+      console.log("again success", filterItems);
+      setCartItemList(filterItems);
+    } else {
+      alert("ebaõnn");
     }
   };
 
@@ -95,7 +123,11 @@ const Dashboard = () => {
             </div>
           </div>
         </main>
-        <Cart productList={cartItemList} addToCart={addToCart} />
+        <Cart
+          deleteItem={deleteItem}
+          productList={cartItemList}
+          addToCart={addToCart}
+        />
       </div>
     </div>
   );

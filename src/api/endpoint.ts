@@ -9,6 +9,7 @@ const ApiPath = {
   Product: {
     getList: "/products",
     cartItem: "/cart-items",
+    deleteItem: "/cart-items",
   },
 };
 
