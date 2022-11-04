@@ -44,11 +44,16 @@ export async function addCartItem(cartItem: CartItemRequestType): Promise<any> {
   return {
     isSuccess: false,
   };
-};
 
-export async function deleteCartItem(cartItem: CartItemRequestType): Promise<any> {
+}
+
+export async function getCartItems(): Promise<any> {
   const response = await fetch(getPath(ApiPath.Product.cartItem), {
-    method: "DELETE",
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      ...getAuthorizationHeader(),
+    },
   });
   if (response.status === 200) {
     const data = await response.json();
@@ -61,4 +66,46 @@ export async function deleteCartItem(cartItem: CartItemRequestType): Promise<any
   return {
     isSuccess: false,
   };
-};
+}
+
+/* export async function deleteCartItem(
+  cartItem: CartItemRequestType
+): Promise<any> {
+  const path = getPath(ApiPath.Product.deleteItem);
+  return fetch(`${path}/${cartItem.id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      ...getAuthorizationHeader(),
+    },
+  }).then((response) => response.status === 200);
+} */
+
+export async function deleteCartItem(
+  cartItem: CartItemRequestType
+): Promise<any> {
+  const response = await fetch(
+    `${getPath(ApiPath.Product.deleteItem)}/${cartItem.id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        ...getAuthorizationHeader(),
+      },
+    }
+  );
+
+  if (response.status === 200) {
+    const data = await response.json();
+
+    return {
+      body: data,
+      isSuccess: true,
+    };
+  }
+  return {
+    isSuccess: false,
+  };
+
+}
+

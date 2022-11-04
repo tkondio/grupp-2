@@ -2,7 +2,10 @@ import { hover } from "@testing-library/user-event/dist/hover";
 import React from "react";
 //import CartItem from "./CartItem";
 import { createUseStyles } from "react-jss";
-import { addCartItem } from "../../../api/controller/productController";
+import {
+  addCartItem,
+  deleteCartItem,
+} from "../../../api/controller/productController";
 import theme from "../../../common/theme";
 import CartHelpers from "../../../helpers/cartHelpers";
 import { CartItemType } from "../../../models/Cart";
@@ -62,11 +65,12 @@ const useStyles = createUseStyles({
 type CartProps = {
   productList: CartItemType[];
   addToCart: (product: Product) => void;
-  onAdd: (product: CartItemType) => void;
-  onRemove: (product: CartItemType) => void;
+
+  deleteItem: (productList: CartItemType) => Promise<void>;
 };
 
-const Cart: React.FC<CartProps> = ({ productList, onAdd, onRemove }) => {
+const Cart: React.FC<CartProps> = ({ productList, deleteItem }) => {
+
   const classes = useStyles();
   const cartTotal = CartHelpers.calculateCartTotal(productList);
   const shippingPrice = cartTotal > 50 ? 0 : 5;
@@ -80,7 +84,13 @@ const Cart: React.FC<CartProps> = ({ productList, onAdd, onRemove }) => {
         {productList.length === 0 && <p>Ostukorv on tühi.</p>}
         <div>
           {productList?.map((el) => (
-            <CartItem product={el} onAdd={onAdd} onRemove={onRemove} />
+
+            <CartItem
+              deleteItem={deleteItem}
+              product={el}
+              /* addToCart={addCartItem} */ key={el.id}
+            />
+
           ))}
         </div>
       </div>
