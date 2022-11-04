@@ -49,13 +49,14 @@ const useStyles = createUseStyles({
     },
   },
   background: {
-    backgroundPosition: theme.backgroundImage.backgroundPosition,
-    backgroundSize: theme.backgroundImage.backgroundSize,
-    backgroundRepeat: theme.backgroundImage.backgroundRepeat,
-    width: theme.backgroundImage.width,
-    height: theme.backgroundImage.height,
-    backgroundAttachment: theme.backgroundImage.backgroundAttachment,
-    backgroundImage: "url(images/lpbg2.png)",
+    backgroundPosition: "center fixed",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    width: "100wh",
+    height: "100vh",
+    top: "0",
+    backgroundAttachment: "fixed",
+    backgroundImage: "url(images/FluffyGreen.jpeg)",
   },
   page: {
     padding: 50,
@@ -74,7 +75,7 @@ const LandingPage: React.FC = () => {
     <div className={classes.background}>
       <div className={classes.page}>
         <div className={classes.catchphrase}>
-          Enam ei pea kodus paljajalu käima.
+          Enam ei pea kodus paljajalu käima
         </div>
 
         <div className={classes.landingLinks}>

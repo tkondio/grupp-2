@@ -28,11 +28,9 @@ const useStyles = createUseStyles({
   title: {
     fontSize: 20,
     fontWeight: 400,
-    color: theme.colors.white,
     fontFamily: theme.font.fontFamily,
-    fontstyle: "normal",
-    letterSpacing: 0.05,
-    lineheight: 24,
+    letterSpacing: 1,
+    color: "white",
   },
   logo: {
     left: 20,
@@ -81,7 +79,7 @@ const Navbar: React.FC = () => {
           />
         </div>
       </Link>
-      <div className={classes.title}>Sussikaubamaja SINU SUSS</div>
+      <div className={classes.title}>Sussikaubamaja <b>SINU SUSS</b></div>
       <div>
       <div className={classes.rightSide}>
       <Link to="/dashboard">
