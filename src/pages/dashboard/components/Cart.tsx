@@ -1,3 +1,4 @@
+import { hover } from "@testing-library/user-event/dist/hover";
 import React from "react";
 //import CartItem from "./CartItem";
 import { createUseStyles } from "react-jss";
@@ -32,17 +33,49 @@ const useStyles = createUseStyles({
     marginBottom: 80,
     borderRadius: 12,
   },
+
+  buyButton: {
+    boxSizing: "border-box",
+    appearance: "none",
+    backgroundColor: "transparent",
+    border: "2px solid white",
+    borderRadius: "0.6em",
+    color: theme.colors.white,
+    cursor: "pointer",
+    display: "flex",
+    alignSelf: "center",
+    fontSize: "1rem",
+    fontWeight: "400",
+    lineHeight: "1",
+    margin: "20px",
+    padding: "1.2em 2.8em",
+    textDecoration: "none",
+    textAlign: "center",
+    textTransform: "uppercase",
+    fontFamily: "Montserrat",
+    transition: "box-shadow 300ms ease-in-out, color 300ms ease-in-out",
+    "&:hover": {
+      color: "#fff",
+      outline: 0,
+      boxShadow: "0 0 40px 40px #6C7E65 inset",
+    }
+  }
 });
 
 type CartProps = {
   productList: CartItemType[];
   addToCart: (product: Product) => void;
+
   deleteItem: (productList: CartItemType) => Promise<void>;
 };
 
 const Cart: React.FC<CartProps> = ({ productList, deleteItem }) => {
+
   const classes = useStyles();
   const cartTotal = CartHelpers.calculateCartTotal(productList);
+  const shippingPrice = cartTotal > 50 ? 0 : 5;
+  const taxPrice = cartTotal * 0.2;
+  const totalPrice = cartTotal + taxPrice + shippingPrice;
 
   return (
     <aside className={`${classes.block} ${classes.col1}`}>
@@ -51,11 +84,13 @@ const Cart: React.FC<CartProps> = ({ productList, deleteItem }) => {
         {productList.length === 0 && <p>Ostukorv on tühi.</p>}
         <div>
           {productList?.map((el) => (
+
             <CartItem
               deleteItem={deleteItem}
               product={el}
               /* addToCart={addCartItem} */ key={el.id}
             />
+
           ))}
         </div>
       </div>
@@ -63,28 +98,28 @@ const Cart: React.FC<CartProps> = ({ productList, deleteItem }) => {
       <>
         <hr></hr>
         <div className={classes.row}>
-          <div className={classes.col2}></div>
-          <div className={classes.col1}>€</div>
+          <div className={classes.col2}>Summa</div>
+          <div className={classes.col1}>€{cartTotal.toFixed(2)}</div>
         </div>
         <div className={classes.row}>
           <div className={classes.col2}>Käibemaks</div>
-          <div className={classes.col1}>€ </div>
+          <div className={classes.col1}>€{taxPrice.toFixed(2)}</div>
         </div>
         <div className={classes.row}>
           <div className={classes.col2}>Transport</div>
-          <div className={classes.col1}>€</div>
+          <div className={classes.col1}>€{shippingPrice.toFixed(2)}</div>
         </div>
         <div className={classes.row}>
           <div className={classes.col2}>
             <strong>KOKKU</strong>
           </div>
           <div className={classes.col1}>
-            {productList.length > 0 && <strong>{`${cartTotal} €`} </strong>}
+            {productList.length > 0 && <strong>{`${totalPrice} €`} </strong>}
           </div>
         </div>
         <hr />
         <div className={classes.row}>
-          <button onClick={() => alert("Ost on sooritatud!")}>
+          <button className={classes.buyButton} onClick={() => alert("Ost on sooritatud!")}>
             Soorita ost!
           </button>
         </div>

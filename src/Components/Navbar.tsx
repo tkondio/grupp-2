@@ -28,11 +28,9 @@ const useStyles = createUseStyles({
   title: {
     fontSize: 20,
     fontWeight: 400,
-    color: theme.colors.white,
     fontFamily: theme.font.fontFamily,
-    fontstyle: "normal",
-    letterSpacing: 0.05,
-    lineheight: 24,
+    letterSpacing: 1,
+    color: "white",
   },
   logo: {
     left: 20,
@@ -51,6 +49,8 @@ const useStyles = createUseStyles({
     textAlign: 'center',
     padding: 10,
     textDecoration: 'none',
+    width: 25,
+    height: 25,
     opacity: 0.6,
     transition: 0.3,
     '&:hover': {
@@ -59,7 +59,7 @@ const useStyles = createUseStyles({
   },
   logoutButton: {
     cursor: 'pointer',
-    height: 22,
+    //height: 22,
   },
 });
 
@@ -81,19 +81,19 @@ const Navbar: React.FC = () => {
           />
         </div>
       </Link>
-      <div className={classes.title}>Sussikaubamaja SINU SUSS</div>
+      <div className={classes.title}>Sussikaubamaja <b>SINU SUSS</b></div>
       <div>
       <div className={classes.rightSide}>
       <Link to="/dashboard">
           <img
-            src="images/basketicon.png"
+            src="images/shoppingCart.png"
             alt="Account"
             className={classes.img}
           />
       </Link>
         <Link to="/login">
             <img
-              src="images/accounticon.png"
+              src="images/user.png"
               alt="Account"
               className={classes.img}
             />
@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
         <div>
           <img
             onClick={handleLogout}
-            src="images/logout.png"
+            src="images/log-out.png"
             alt="logout"
             className={`${classes.logoutButton} ${classes.img}`}
           />

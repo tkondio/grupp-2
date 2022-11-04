@@ -2,7 +2,12 @@ import { CartItemType } from "../models/Cart";
 
 const CartHelpers = {
   calculateCartTotal: (cartItems: CartItemType[]) =>
-    cartItems.reduce((a, c) => a + c.price, 0),
+    cartItems.reduce((a, c) => {
+      if (c.qty) {
+        return a + c.price * c.qty;
+      }
+      return a + c.price;
+    }, 0),
 };
 
 export default CartHelpers;

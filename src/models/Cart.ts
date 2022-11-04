@@ -4,6 +4,7 @@ export type CartItemType = {
   price: number;
   size: number;
   imageUrl: string;
+  qty?: number;
 };
 
 export type CartItemRequestType = {

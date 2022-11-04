@@ -28,14 +28,34 @@ const useStyles = createUseStyles({
   img: {
     width: 100,
   },
+
+  plusMinus: {
+    fontFamily: "Montserrat",
+    fontSize: 14,
+    fontWeight: 500,
+    borderRadius: "0.6em",
+    boxSizing: "border-box",
+    margin: "2px",
+    width: "25px",
+    border: "2px solid white",
+    cursor: "pointer",
+    backgroundColor: "transparent",
+    textAlign: "center",
+    color: theme.colors.white,
+    "&:hover": {
+      color: "#6C7E65",
+  }
+  }
 });
 type CartItemProps = {
   product: CartItemType;
+
   /*   addToCart: (product: Product) => void; */
   deleteItem: (productList: CartItemType) => Promise<void>;
 };
 
 const CartItem: React.FC<CartItemProps> = ({ product, deleteItem }) => {
+
   const classes = useStyles();
   const handleDelete = async () => {
     await deleteItem(product);
@@ -52,9 +72,11 @@ const CartItem: React.FC<CartItemProps> = ({ product, deleteItem }) => {
           />
         </div>
         <div className={classes.col2}>{product.name}</div>
+        <div className={classes.col2}>{`Kogus: ${product.qty}`}</div>
         <div className={classes.col2}>{`Suurus: ${product.size}`}</div>
         <div className={classes.col2}>{`Hind: ${product.price}€`}</div>
         <div className={classes.col2}>
+
           <button>+</button>
           <button
             onClick={() => {
@@ -63,6 +85,7 @@ const CartItem: React.FC<CartItemProps> = ({ product, deleteItem }) => {
           >
             -
           </button>
+
         </div>
       </div>
     </div>
