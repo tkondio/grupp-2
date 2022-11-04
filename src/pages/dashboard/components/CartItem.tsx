@@ -26,6 +26,24 @@ const useStyles = createUseStyles({
   img: {
     width: 100,
   },
+
+  plusMinus: {
+    fontFamily: "Montserrat",
+    fontSize: 14,
+    fontWeight: 500,
+    borderRadius: "0.6em",
+    boxSizing: "border-box",
+    margin: "2px",
+    width: "25px",
+    border: "2px solid white",
+    cursor: "pointer",
+    backgroundColor: "transparent",
+    textAlign: "center",
+    color: theme.colors.white,
+    "&:hover": {
+      color: "#6C7E65",
+  }
+  }
 });
 type CartItemProps = {
   product: CartItemType;
@@ -50,8 +68,8 @@ const CartItem: React.FC<CartItemProps> = ({ product, onAdd, onRemove }) => {
         <div className={classes.col2}>{`Suurus: ${product.size}`}</div>
         <div className={classes.col2}>{`Hind: ${product.price}€`}</div>
         <div className={classes.col2}>
-          <button onClick={() => onAdd(product)}>+</button>
-          <button onClick={() => onRemove(product)}>-</button>
+          <button className={classes.plusMinus} onClick={() => onAdd(product)}>+</button>
+          <button className={classes.plusMinus} onClick={() => onRemove(product)}>-</button>
         </div>
       </div>
     </div>

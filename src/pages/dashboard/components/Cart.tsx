@@ -1,3 +1,4 @@
+import { hover } from "@testing-library/user-event/dist/hover";
 import React from "react";
 //import CartItem from "./CartItem";
 import { createUseStyles } from "react-jss";
@@ -29,6 +30,33 @@ const useStyles = createUseStyles({
     marginBottom: 80,
     borderRadius: 12,
   },
+
+  buyButton: {
+    boxSizing: "border-box",
+    appearance: "none",
+    backgroundColor: "transparent",
+    border: "2px solid white",
+    borderRadius: "0.6em",
+    color: theme.colors.white,
+    cursor: "pointer",
+    display: "flex",
+    alignSelf: "center",
+    fontSize: "1rem",
+    fontWeight: "400",
+    lineHeight: "1",
+    margin: "20px",
+    padding: "1.2em 2.8em",
+    textDecoration: "none",
+    textAlign: "center",
+    textTransform: "uppercase",
+    fontFamily: "Montserrat",
+    transition: "box-shadow 300ms ease-in-out, color 300ms ease-in-out",
+    "&:hover": {
+      color: "#fff",
+      outline: 0,
+      boxShadow: "0 0 40px 40px #6C7E65 inset",
+    }
+  }
 });
 
 type CartProps = {
@@ -81,7 +109,7 @@ const Cart: React.FC<CartProps> = ({ productList, onAdd, onRemove }) => {
         </div>
         <hr />
         <div className={classes.row}>
-          <button onClick={() => alert("Ost on sooritatud!")}>
+          <button className={classes.buyButton} onClick={() => alert("Ost on sooritatud!")}>
             Soorita ost!
           </button>
         </div>
