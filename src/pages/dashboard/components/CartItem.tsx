@@ -29,15 +29,15 @@ const useStyles = createUseStyles({
 });
 type CartItemProps = {
   product: CartItemType;
-  addToCart: (product: Product) => void;
+  onAdd: (product: CartItemType) => void;
+  onRemove: (product: CartItemType) => void;
 };
 
-const CartItem: React.FC<CartItemProps> = ({ product, addToCart }) => {
+const CartItem: React.FC<CartItemProps> = ({ product, onAdd, onRemove }) => {
   const classes = useStyles();
   return (
     <div className={classes.block}>
       <div className={classes.row}>
-        
         <div className={`${classes.col2} ${classes.img}`}>
           <img
             className={classes.img}
@@ -46,11 +46,12 @@ const CartItem: React.FC<CartItemProps> = ({ product, addToCart }) => {
           />
         </div>
         <div className={classes.col2}>{product.name}</div>
+        <div className={classes.col2}>{`Kogus: ${product.qty}`}</div>
         <div className={classes.col2}>{`Suurus: ${product.size}`}</div>
         <div className={classes.col2}>{`Hind: ${product.price}€`}</div>
         <div className={classes.col2}>
-          <button>+</button>
-          <button>-</button>
+          <button onClick={() => onAdd(product)}>+</button>
+          <button onClick={() => onRemove(product)}>-</button>
         </div>
       </div>
     </div>
