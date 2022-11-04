@@ -18,7 +18,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ product, addToCart }) => {
       <CardMedia
         component="img"
         alt="suss"
-        height="140"
+        //height="120"
         image={product.imageUrl}
       />
       <CardContent>
@@ -27,7 +27,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ product, addToCart }) => {
         </Typography>
         <Typography variant="body2" color="text.secondary">
           <div>{product.description}</div>
-          <div>Hind: {product.price}</div>
+          <div>Hind: {product.price}€</div>
         </Typography>
       </CardContent>
       <CardActions>

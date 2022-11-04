@@ -14,16 +14,16 @@ import {
 } from "../../api/controller/productController";
 
 const useStyles = createUseStyles({
+  container:{
+    height: '100vh'
+  },
   background: {
     backgroundImage: "url(images/grass.jpeg)",
-    backgroundColor: theme.colors.middleGreen,
-    backgroundPosition: theme.backgroundImage.backgroundPosition,
     backgroundSize: theme.backgroundImage.backgroundSize,
-    backgroundRepeat: theme.backgroundImage.backgroundRepeat,
-    width: theme.backgroundImage.width,
-    height: "130vh",
-    backgroundAttachment: theme.backgroundImage.backgroundAttachment,
+    backgroundRepeat: 'repeat',
+    height: "100%",
     fontFamily: theme.font.fontFamily,
+    overflowY:'auto',
   },
   row: {
     display: "flex",
@@ -81,9 +81,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div className={classes.background}>
+    <div className={classes.container}>
+      <div className={classes.background}>
       <Header />
-
       <div className={classes.row}>
         <main className={`${classes.block2} ${classes.col2}`}>
           <h2>Tooted</h2>
@@ -97,6 +97,7 @@ const Dashboard = () => {
         </main>
         <Cart productList={cartItemList} addToCart={addToCart} />
       </div>
+    </div>
     </div>
   );
 };
