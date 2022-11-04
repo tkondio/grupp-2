@@ -3,6 +3,7 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { addCartItem } from "../../../api/controller/productController";
 import theme from "../../../common/theme";
+import CartHelpers from "../../../helpers/cartHelpers";
 import { CartItemType } from "../../../models/Cart";
 import { Product } from "../../../models/Product";
 import CartItem from "./CartItem";
@@ -37,13 +38,13 @@ type CartProps = {
 
 const Cart: React.FC<CartProps> = ({ productList }) => {
   const classes = useStyles();
+  const cartTotal = CartHelpers.calculateCartTotal(productList);
 
   return (
     <aside className={`${classes.block} ${classes.col1}`}>
       <h2>Ostukorvi sisu</h2>
       <div>
-        {/*         <CartItem name="" price={22} size={36} imageUrl="" id={1} />
-        <CartItem name="" price={22} size={36} imageUrl="" id={2} /> */}
+        {productList.length === 0 && <p>Ostukorv on tühi.</p>}
         <div>
           {productList?.map((el) => (
             <CartItem product={el} addToCart={addCartItem} />
@@ -54,7 +55,7 @@ const Cart: React.FC<CartProps> = ({ productList }) => {
       <>
         <hr></hr>
         <div className={classes.row}>
-          <div className={classes.col2}>Summa</div>
+          <div className={classes.col2}></div>
           <div className={classes.col1}>€</div>
         </div>
         <div className={classes.row}>
@@ -70,7 +71,7 @@ const Cart: React.FC<CartProps> = ({ productList }) => {
             <strong>KOKKU</strong>
           </div>
           <div className={classes.col1}>
-            <strong>€</strong>
+            {productList.length > 0 && <strong>{`${cartTotal} €`} </strong>}
           </div>
         </div>
         <hr />
