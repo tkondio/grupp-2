@@ -55,7 +55,6 @@ const useStyles = createUseStyles({
     width: "169px",
     height: "43px",
     fontFamily: "Montserrat",
-    fontStyle: "bold",
     fontWeight: "600",
     fontSize: "32px",
     lineHeight: "108.02%",
@@ -173,9 +172,7 @@ export const RegisterForm = (props: {
           Kliendiks registreerudes nõustud meie kliendiandmete töötlemise
           tingimustega.{" "}
         </label>
-        <button className={classes.registerButton} type="submit">
-          REGISTREERI
-        </button>
+        <button className={classes.registerButton} type="submit">REGISTREERI</button>
       </form>
       <button
         className={classes.backToLogin}
