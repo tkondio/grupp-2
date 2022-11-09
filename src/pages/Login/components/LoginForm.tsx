@@ -142,7 +142,7 @@ export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
           {" "}
           <label className={classes.forgotPassword}>
             {" "}
-            Unustasid parooli? Vajuta <b>SIIA</b>!
+            Unustasid parooli? Kahju, tee uus kasutaja!
           </label>
         </div>
         <button className={classes.logInButton} type="submit">
