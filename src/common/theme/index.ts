@@ -7,7 +7,7 @@ const theme = {
     middleGreen: "#6D795E",
     lightGreen: "#6C7E65",
     black: "#000000",
-    lightGrey: "rgba(217, 217, 217, 0.5)",
+    lightGrey: "rgba(41, 56, 34, 0.53)",
     sageGreen: "#BFCCBA",
     inputBoxColor: "rgba(255, 255, 255, 0.67)",
   },
