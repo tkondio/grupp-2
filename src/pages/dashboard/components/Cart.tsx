@@ -1,5 +1,4 @@
 import React from "react";
-//import CartItem from "./CartItem";
 import { createUseStyles } from "react-jss";
 import { addCartItem } from "../../../api/controller/productController";
 import theme from "../../../common/theme";
@@ -34,9 +33,10 @@ const useStyles = createUseStyles({
 type CartProps = {
   productList: CartItemType[];
   addToCart: (product: Product) => void;
+  deleteItem: (productList: CartItemType) => Promise<void>;
 };
 
-const Cart: React.FC<CartProps> = ({ productList }) => {
+const Cart: React.FC<CartProps> = ({ productList, deleteItem }) => {
   const classes = useStyles();
   const cartTotal = CartHelpers.calculateCartTotal(productList);
 
@@ -47,10 +47,15 @@ const Cart: React.FC<CartProps> = ({ productList }) => {
         {productList.length === 0 && <p>Ostukorv on tühi.</p>}
         <div>
           {productList?.map((el) => (
-            <CartItem product={el} addToCart={addCartItem} />
+            <CartItem 
+            deleteItem={deleteItem} 
+            product={el} 
+            key={el.id} 
+            />
           ))}
         </div>
       </div>
+
 
       <>
         <hr></hr>
