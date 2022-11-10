@@ -67,19 +67,6 @@ export async function getCartItems(): Promise<any> {
   };
 }
 
-/* export async function deleteCartItem(
-  cartItem: CartItemRequestType
-): Promise<any> {
-  const path = getPath(ApiPath.Product.deleteItem);
-  return fetch(`${path}/${cartItem.id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      ...getAuthorizationHeader(),
-    },
-  }).then((response) => response.status === 200);
-} */
-
 export async function deleteCartItem(
   cartItem: CartItemRequestType
 ): Promise<any> {

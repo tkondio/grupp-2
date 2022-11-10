@@ -7,7 +7,6 @@ import { AuthUser } from "../models/AuthUser";
 
 const useStyles = createUseStyles({
   container: {
-    //background: theme.colors.lightGrey,
     position: "absolute",
     width: "100%",
     color: theme.colors.white,
@@ -30,7 +29,7 @@ const Header = () => {
   return (
     <header className={classes.container}>
       <div>
-        {/*  <h1>Tere, {`${currentUser?.firstName} ${currentUser?.lastName}`}!</h1> */}
+         {/* <h1>Tere, {`${currentUser?.firstName} ${currentUser?.lastName}`}!</h1> */}
       </div>
     </header>
   );

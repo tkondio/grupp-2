@@ -82,7 +82,7 @@ const Cart: React.FC<CartProps> = ({ productList, deleteItem, deleteAll }) => {
             <CartItem
               deleteItem={deleteItem}
               product={el}
-              /* addToCart={addCartItem} */ key={el.id}
+              key={el.id}
             />
           ))}
         </div>
@@ -92,22 +92,22 @@ const Cart: React.FC<CartProps> = ({ productList, deleteItem, deleteAll }) => {
         <hr></hr>
         <div className={classes.row}>
           <div className={classes.col2}>Summa</div>
-          <div className={classes.col1}>€{cartTotal.toFixed(2)}</div>
+          <div className={classes.col1}>{cartTotal.toFixed(2)}€</div>
         </div>
         <div className={classes.row}>
           <div className={classes.col2}>Käibemaks</div>
-          <div className={classes.col1}>€{taxPrice.toFixed(2)}</div>
+          <div className={classes.col1}>{taxPrice.toFixed(2)}€</div>
         </div>
         <div className={classes.row}>
           <div className={classes.col2}>Transport</div>
-          <div className={classes.col1}>€{shippingPrice.toFixed(2)}</div>
+          <div className={classes.col1}>{shippingPrice.toFixed(2)}€</div>
         </div>
         <div className={classes.row}>
           <div className={classes.col2}>
             <strong>KOKKU</strong>
           </div>
           <div className={classes.col1}>
-            {productList.length > 0 && <strong>{`${totalPrice} €`} </strong>}
+            {productList.length > 0 && <strong>{`${totalPrice}€`} </strong>}
           </div>
         </div>
         <hr />

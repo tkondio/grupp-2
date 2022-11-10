@@ -116,7 +116,6 @@ export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
     <div className={classes.container}>
       <form className={classes.loginform} onSubmit={handleSubmit}>
         <div>
-          {" "}
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -125,7 +124,7 @@ export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
             id="email"
             name="email"
             className={classes.inputField}
-          />{" "}
+          />
         </div>
         <div>
           <input
@@ -136,16 +135,17 @@ export const LoginForm = (props: { onFormSwitch: (arg0: string) => void }) => {
             id="password"
             name="password"
             className={classes.inputField}
-          />{" "}
+          />
         </div>
         <div>
-          {" "}
           <label className={classes.forgotPassword}>
-            {" "}
             Unustasid parooli? Kahju, tee uus kasutaja!
           </label>
         </div>
-        <button className={classes.logInButton} type="submit">
+        <button 
+        className={classes.logInButton} 
+        type="submit"
+        disabled={(password && email) === ""}>
           LOGI SISSE
         </button>
       </form>

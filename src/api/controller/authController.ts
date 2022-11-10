@@ -8,7 +8,6 @@ export async function registerUser(user: any): Promise<any> {
     body: JSON.stringify(user),
     headers: {
       "Content-Type": "application/json",
-      // "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6I…zM0fQ.nfacO9S7U2VF-v-gAzYP0RYaE8s2i1lvIAq6SEot6zo"
     },
   });
   if (response.status === 200) {
@@ -51,7 +50,6 @@ export async function loginUser(user: any) {
     body: JSON.stringify(user),
     headers: {
       "Content-Type": "application/json",
-      // "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6I…zM0fQ.nfacO9S7U2VF-v-gAzYP0RYaE8s2i1lvIAq6SEot6zo"
     },
   });
   if (response.status === 200) {

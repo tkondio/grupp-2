@@ -1,10 +1,8 @@
 import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { deleteCartItem } from "../../../api/controller/productController";
 import theme from "../../../common/theme";
 import { CartItemType } from "../../../models/Cart";
-import { Product } from "../../../models/Product";
 
 const useStyles = createUseStyles({
   row: {
@@ -57,7 +55,6 @@ const useStyles = createUseStyles({
     cursor: "pointer",
     display: "flex",
     alignSelf: "center",
-    //fontSize: "1rem",
     fontWeight: "400",
     lineHeight: "1",
     margin: "20px",
@@ -76,8 +73,6 @@ const useStyles = createUseStyles({
 });
 type CartItemProps = {
   product: CartItemType;
-
-  /*   addToCart: (product: Product) => void; */
   deleteItem: (productList: CartItemType) => Promise<void>;
 };
 

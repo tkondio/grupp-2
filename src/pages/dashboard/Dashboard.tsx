@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-
 import { createUseStyles } from "react-jss";
 import theme from "../../common/theme";
 import Cart from "./components/Cart";
-import Header from "../../components/Header";
-import ItemCard from "./components/ItemCard";
+import ProductCard from "./components/ProductCard";
 import { Product } from "../../models/Product";
 import useEffectAsync from "../../common/useEffectAsync";
 import { CartItemType } from "../../models/Cart";
@@ -13,7 +11,6 @@ import {
   deleteCartItem,
   getProductList,
   getCartItems,
-  /* emptyCart */
 } from "../../api/controller/productController";
 import { AuthUser } from "../../models/AuthUser";
 import { getCurrentUser } from "../../api/controller/authController";
@@ -93,13 +90,6 @@ const Dashboard = () => {
   }, []);
 
   useEffectAsync(async () => {
-    const response = await getCartItems();
-    if (response.isSuccess === true) {
-      setCartItemList(response.body);
-    }
-  }, []);
-
-  useEffectAsync(async () => {
     const response = await getCurrentUser();
     if (response.isSuccess === true) {
       setCurrentUser(response.body);
@@ -140,7 +130,6 @@ const Dashboard = () => {
   return (
     <div className={classes.container}>
       <div className={classes.background}>
-        <Header />
         <div className={classes.welcome}>
           <h1>Tere, {`${currentUser?.firstName} ${currentUser?.lastName}`}!</h1>
         </div>
@@ -150,7 +139,10 @@ const Dashboard = () => {
             <div>
               <div className={classes.gridItem}>
                 {productList?.map((el) => (
-                  <ItemCard product={el} addToCart={addToCart} />
+                  <ProductCard 
+                  product={el} 
+                  addToCart={addToCart} 
+                  />
                 ))}
               </div>
             </div>
