@@ -10,8 +10,6 @@ const useStyles = createUseStyles({
   container: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-between",
     gap: 20,
   },
   header: {
@@ -20,7 +18,6 @@ const useStyles = createUseStyles({
     fontWeight: "600",
     fontSize: "32px",
     lineHeight: "108.02%",
-    alignItems: "center",
     letterSpacing: "-0.02em",
     color: theme.colors.white,
     textDecoration: "none",
@@ -44,21 +41,17 @@ const useStyles = createUseStyles({
     background: theme.colors.inputBoxColor,
     border: "1px solid #324327",
     "&::placeholder": {
-      fontSize: "20px",
-      fontFamily: "Montserrat",
       fontStyle: "normal",
       fontWeight: "300",
       color: theme.colors.darkGreen,
     },
   },
   registerButton: {
-    width: "169px",
+    width: "170px",
     height: "43px",
-    fontFamily: "Montserrat",
+    fontFamily: theme.font.fontFamily,
     fontWeight: "600",
     fontSize: "32px",
-    lineHeight: "108.02%",
-    alignItems: "center",
     letterSpacing: "-0.02em",
     color: theme.colors.white,
     background: "none",
@@ -76,16 +69,12 @@ const useStyles = createUseStyles({
     fontWeight: "300",
     fontSize: "20px",
     color: theme.colors.white,
-    lineheight: "108.02%",
-    alignItems: "center",
   },
   backToLogin: {
     fontFamily: "Montserrat",
     fontStyle: "bold",
     fontWeight: "300",
     fontSize: "20px",
-    lineHeight: "108.02%",
-    alignItems: "center",
     letterSpacing: "-0.02em",
     color: theme.colors.white,
     background: "none",
@@ -124,7 +113,6 @@ export const RegisterForm = (props: {
         navigate("/dashboard");
       }
     }
-    // console.log(email, password, firstName, lastName);
   };
 
   return (
@@ -168,11 +156,14 @@ export const RegisterForm = (props: {
           className={classes.inputField}
         />
         <label className={classes.terms}>
-          {" "}
           Kliendiks registreerudes nõustud meie kliendiandmete töötlemise
-          tingimustega.{" "}
+          tingimustega.
         </label>
-        <button className={classes.registerButton} type="submit">REGISTREERI</button>
+        <button 
+        className={classes.registerButton} 
+        type="submit"
+        disabled={(firstName && lastName && password && email) === ""}>
+          REGISTREERI</button>
       </form>
       <button
         className={classes.backToLogin}
