@@ -1,16 +1,12 @@
 import { hover } from "@testing-library/user-event/dist/hover";
 import React from "react";
-//import CartItem from "./CartItem";
 import { createUseStyles } from "react-jss";
-import {
-  addCartItem,
-  deleteCartItem,
-} from "../../../api/controller/productController";
 import theme from "../../../common/theme";
 import CartHelpers from "../../../helpers/cartHelpers";
 import { CartItemType } from "../../../models/Cart";
 import { Product } from "../../../models/Product";
 import CartItem from "./CartItem";
+import {} from "react-transition-group";
 
 const useStyles = createUseStyles({
   row: {
@@ -118,7 +114,12 @@ const Cart: React.FC<CartProps> = ({ productList, deleteItem, deleteAll }) => {
         <div className={classes.row}>
           <button
             className={classes.buyButton}
-            onClick={() => alert("Ost on sooritatud!")}
+            onClick={() => {
+              deleteAll();
+              alert(
+                "Kas oled kindel, et tahad ostu sooritada? (Valikut nagunii ei ole, vajuta OK ja tasu sularahas Aia 7.)"
+              );
+            }}
           >
             Soorita ost!
           </button>
