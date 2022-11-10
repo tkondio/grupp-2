@@ -44,7 +44,7 @@ export async function addCartItem(cartItem: CartItemRequestType): Promise<any> {
   return {
     isSuccess: false,
   };
-};
+}
 
 export async function getCartItems(): Promise<any> {
   const response = await fetch(getPath(ApiPath.Product.cartItem), {
@@ -65,19 +65,35 @@ export async function getCartItems(): Promise<any> {
   return {
     isSuccess: false,
   };
-};
+}
 
-export async function deleteCartItem(
+/* export async function deleteCartItem(
   cartItem: CartItemRequestType
-  ): Promise<any> {
-  const response = await fetch(
-    `${getPath(ApiPath.Product.deleteItem)}/${cartItem.id}`, {
+): Promise<any> {
+  const path = getPath(ApiPath.Product.deleteItem);
+  return fetch(`${path}/${cartItem.id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       ...getAuthorizationHeader(),
     },
-  });
+  }).then((response) => response.status === 200);
+} */
+
+export async function deleteCartItem(
+  cartItem: CartItemRequestType
+): Promise<any> {
+  const response = await fetch(
+    `${getPath(ApiPath.Product.deleteItem)}/${cartItem.id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        ...getAuthorizationHeader(),
+      },
+    }
+  );
+
   if (response.status === 200) {
     const data = await response.json();
 
@@ -89,4 +105,4 @@ export async function deleteCartItem(
   return {
     isSuccess: false,
   };
-};
+}
