@@ -29,7 +29,7 @@ const useStyles = createUseStyles({
     backgroundColor: theme.colors.lightGrey,
     padding: 20,
     margin: 20,
-    marginTop: 170,
+    marginTop: 20,
     marginBottom: 80,
     borderRadius: 12,
   },
@@ -58,19 +58,18 @@ const useStyles = createUseStyles({
       color: "#fff",
       outline: 0,
       boxShadow: "0 0 40px 40px #6C7E65 inset",
-    }
-  }
+    },
+  },
 });
 
 type CartProps = {
   productList: CartItemType[];
   addToCart: (product: Product) => void;
-
+  deleteAll: () => Promise<void>;
   deleteItem: (productList: CartItemType) => Promise<void>;
 };
 
-const Cart: React.FC<CartProps> = ({ productList, deleteItem }) => {
-
+const Cart: React.FC<CartProps> = ({ productList, deleteItem, deleteAll }) => {
   const classes = useStyles();
   const cartTotal = CartHelpers.calculateCartTotal(productList);
   const shippingPrice = cartTotal > 50 ? 0 : 5;
@@ -84,13 +83,11 @@ const Cart: React.FC<CartProps> = ({ productList, deleteItem }) => {
         {productList.length === 0 && <p>Ostukorv on tühi.</p>}
         <div>
           {productList?.map((el) => (
-
             <CartItem
               deleteItem={deleteItem}
               product={el}
               /* addToCart={addCartItem} */ key={el.id}
             />
-
           ))}
         </div>
       </div>
@@ -119,8 +116,18 @@ const Cart: React.FC<CartProps> = ({ productList, deleteItem }) => {
         </div>
         <hr />
         <div className={classes.row}>
-          <button className={classes.buyButton} onClick={() => alert("Ost on sooritatud!")}>
+          <button
+            className={classes.buyButton}
+            onClick={() => alert("Ost on sooritatud!")}
+          >
             Soorita ost!
+          </button>
+          <button
+            className={classes.buyButton}
+            onClick={deleteAll}
+            disabled={productList.length === 0}
+          >
+            Tühjenda ostukorv!
           </button>
         </div>
       </>

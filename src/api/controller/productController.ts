@@ -44,7 +44,6 @@ export async function addCartItem(cartItem: CartItemRequestType): Promise<any> {
   return {
     isSuccess: false,
   };
-
 }
 
 export async function getCartItems(): Promise<any> {
@@ -106,6 +105,4 @@ export async function deleteCartItem(
   return {
     isSuccess: false,
   };
-
 }
-

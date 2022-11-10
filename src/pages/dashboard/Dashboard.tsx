@@ -13,7 +13,10 @@ import {
   deleteCartItem,
   getProductList,
   getCartItems,
+  /* emptyCart */
 } from "../../api/controller/productController";
+import { AuthUser } from "../../models/AuthUser";
+import { getCurrentUser } from "../../api/controller/authController";
 
 const useStyles = createUseStyles({
   container: {
@@ -45,7 +48,7 @@ const useStyles = createUseStyles({
     backgroundColor: theme.colors.lightGrey,
     padding: 20,
     margin: 20,
-    marginTop: 170,
+    marginTop: 20,
     marginBottom: 80,
     borderRadius: 12,
   },
@@ -53,6 +56,12 @@ const useStyles = createUseStyles({
     display: "grid",
     gridTemplateColumns: "auto auto",
     gap: 10,
+  },
+  welcome: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: 90,
+    color: theme.colors.white,
   },
 });
 
@@ -65,6 +74,8 @@ type DashboardProps = {
 const Dashboard = () => {
   const [productList, setProductList] = useState<Product[] | null>(null);
   const [cartItemList, setCartItemList] = useState<CartItemType[]>([]);
+  const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
+
   const classes = useStyles();
 
   const onAdd = (product: CartItemType) => {
@@ -119,6 +130,13 @@ const Dashboard = () => {
     }
   }, []);
 
+  useEffectAsync(async () => {
+    const response = await getCurrentUser();
+    if (response.isSuccess === true) {
+      setCurrentUser(response.body);
+    }
+  }, []);
+
   const addToCart = async (product: Product) => {
     const cartItem = {
       name: product.name,
@@ -136,19 +154,27 @@ const Dashboard = () => {
   const deleteItem = async (product: CartItemType) => {
     const response = await deleteCartItem(product);
     if (response.isSuccess === true) {
-      console.log("success!");
       const filterItems = cartItemList.filter((el) => product.id !== el.id);
-      console.log("again success", filterItems);
       setCartItemList(filterItems);
     } else {
       alert("ebaõnn");
     }
   };
 
+  const deleteAll = async () => {
+    cartItemList.map(async (item) => {
+      await deleteCartItem(item);
+    });
+    setCartItemList([]);
+  };
+
   return (
     <div className={classes.container}>
       <div className={classes.background}>
         <Header />
+        <div className={classes.welcome}>
+          <h1>Tere, {`${currentUser?.firstName} ${currentUser?.lastName}`}!</h1>
+        </div>
         <div className={classes.row}>
           <main className={`${classes.block2} ${classes.col2}`}>
             <h2>Tooted</h2>
@@ -164,6 +190,7 @@ const Dashboard = () => {
             deleteItem={deleteItem}
             productList={cartItemList}
             addToCart={addToCart}
+            deleteAll={deleteAll}
           />
         </div>
       </div>
