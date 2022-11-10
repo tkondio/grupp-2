@@ -78,37 +78,6 @@ const Dashboard = () => {
 
   const classes = useStyles();
 
-  const onAdd = (product: CartItemType) => {
-    const exist = cartItemList.find((x) => x.id === product.id);
-    if (exist) {
-      setCartItemList(
-        cartItemList.map((x) =>
-          x.id === product.id
-            ? { ...exist, qty: exist.qty && exist.qty + 1 }
-            : x
-        )
-      );
-    } else {
-      setCartItemList([...cartItemList, { ...product, qty: 1 }]);
-    }
-  };
-
-  const onRemove = (product: CartItemType) => {
-    const exist = cartItemList.find((x) => x.id === product.id);
-    if (exist?.qty && exist.qty === 1) {
-      setCartItemList(cartItemList.filter((x) => x.id !== product.id));
-    } else {
-      setCartItemList(
-        cartItemList.map((x) => {
-          if (product.id === x.id && exist?.qty) {
-            return { ...x, qty: exist.qty - 1 };
-          }
-          return x;
-        })
-      );
-    }
-  };
-
   useEffectAsync(async () => {
     const response = await getProductList();
     if (response.isSuccess === true) {
