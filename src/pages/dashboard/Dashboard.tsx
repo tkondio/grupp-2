@@ -81,6 +81,12 @@ const Dashboard = () => {
       setProductList(response.body);
     }
   }, []);
+  useEffectAsync(async () => {
+    const response = await getCartItems();
+    if (response.isSuccess === true) {
+      setCartItemList(response.body);
+    }
+  }, []);
 
   useEffectAsync(async () => {
     const response = await getCartItems();

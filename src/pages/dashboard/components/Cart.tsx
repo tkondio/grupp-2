@@ -88,6 +88,7 @@ const Cart: React.FC<CartProps> = ({ productList, deleteItem, deleteAll }) => {
         </div>
       </div>
 
+
       <>
         <hr></hr>
         <div className={classes.row}>
