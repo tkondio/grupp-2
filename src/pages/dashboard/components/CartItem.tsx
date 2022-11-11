@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import theme from "../../../common/theme";
@@ -94,7 +93,6 @@ const CartItem: React.FC<CartItemProps> = ({ product, deleteItem }) => {
           />
         </div>
         <div className={classes.col2}>{product.name}</div>
-        {/* <div className={classes.col2}>{`Kogus: ${product.qty}`}</div> */}
         <div className={classes.col2}>{`Suurus: ${product.size}`}</div>
         <div className={classes.col2}>{`Hind: ${product.price}€`}</div>
         <div className={classes.col2}>
