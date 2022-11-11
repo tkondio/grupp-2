@@ -28,6 +28,7 @@ const useStyles = createUseStyles({
     marginTop: 20,
     marginBottom: 80,
     borderRadius: 12,
+    cursor: "progress",
   },
 
   buyButton: {
@@ -79,15 +80,10 @@ const Cart: React.FC<CartProps> = ({ productList, deleteItem, deleteAll }) => {
         {productList.length === 0 && <p>Ostukorv on tühi.</p>}
         <div>
           {productList?.map((el) => (
-            <CartItem
-              deleteItem={deleteItem}
-              product={el}
-              key={el.id}
-            />
+            <CartItem deleteItem={deleteItem} product={el} key={el.id} />
           ))}
         </div>
       </div>
-
 
       <>
         <hr></hr>
