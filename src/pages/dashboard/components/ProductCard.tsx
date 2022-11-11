@@ -7,31 +7,25 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Product } from "../../../models/Product";
 
-
 type ItemCardProps = {
   product: Product;
   addToCart: (product: Product) => void;
 };
 
 const ProductCard: React.FC<ItemCardProps> = ({ product, addToCart }) => {
-
   return (
     <Card sx={{ maxWidth: 300 }}>
       <CardMedia
         component="img"
         alt="suss"
-        width="200"
+        width="200px"
         image={product.imageUrl}
       />
       <CardContent>
-        <Typography 
-        gutterBottom variant="h5" 
-        component="div">
+        <Typography gutterBottom variant="h5" component="div">
           <div>{product.name}</div>
         </Typography>
-        <Typography 
-        variant="body2" 
-        color="text.secondary">
+        <Typography variant="body2" color="text.secondary">
           <div>{product.description}</div>
           <div>Hind: {product.price}€</div>
           <div>Suurus: {product.size}</div>
@@ -45,7 +39,8 @@ const ProductCard: React.FC<ItemCardProps> = ({ product, addToCart }) => {
             fontFamily: "Montserrat",
           }}
           size="small"
-          onClick={() => addToCart(product)}>
+          onClick={() => addToCart(product)}
+        >
           Lisa ostukorvi!
         </Button>
       </CardActions>
